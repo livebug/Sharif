@@ -1,0 +1,53 @@
+﻿<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">Blog.Blazor</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            @foreach (var item in navMenuList)
+            {
+                <NavLink class="nav-link" href="@(item.ItemHref)" Match="@(string.IsNullOrWhiteSpace(item.ItemHref)? NavLinkMatch.All:NavLinkMatch.Prefix)">
+                    <span class="oi oi-@(item.ItemIcon.ToLowerInvariant())" aria-hidden="true"></span> @(item.ItemName)
+                </NavLink>
+            }
+
+        </li>
+    </ul>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    /// <summary>
+    /// 记录导航菜单内容
+    /// （菜单项名，href）
+    /// href 为空默认为主页  Match="NavLinkMatch.All"
+    /// </summary>
+    private List<NavMenuList> navMenuList = new List<NavMenuList>();
+
+    protected override void OnInitialized()
+    {
+        navMenuList.Add(new NavMenuList { ItemName = "Home", ItemHref = "" ,ItemIcon="Home"});
+        navMenuList.Add(new NavMenuList { ItemName = "Counter", ItemHref = "counter" });
+        navMenuList.Add(new NavMenuList { ItemName = "Fetch data", ItemHref = "fetchdata" });
+    }
+
+    public class NavMenuList
+    {
+        public string ItemName { get; set; }
+        public string ItemHref { get; set; }
+        public string ItemIcon { get; set; } = "list";
+    }
+
+}
