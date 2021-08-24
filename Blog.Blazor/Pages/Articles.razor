@@ -1,0 +1,38 @@
+﻿@page "/articles/{id?}"
+@using Blog.Blazor.Pages.Article
+<h1>Articles</h1> 
+
+@if (IsListOrContent)
+{
+    <ArticleList></ArticleList>
+}
+else
+{
+    <ArticleContent Id="@Id"></ArticleContent>
+}
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    public bool IsListOrContent = false;
+
+    protected override void OnInitialized()
+    {
+        // 如果 Id为空则展示文章列表
+        // 否则 根据Id查询相应文章，展示文章内容
+        if (string.IsNullOrWhiteSpace(Id))
+        {
+            IsListOrContent = true;
+        }
+
+        if (IsListOrContent)
+        {
+            Console.WriteLine("文章列表");
+        }
+        else
+        {
+            Console.WriteLine($"文章{Id}内容");
+        }
+    }
+}
