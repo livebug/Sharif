@@ -1,5 +1,44 @@
 ﻿<h3>ArticleList</h3>
 
-@code {
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title     </th>
+            <th>Tags      </th>
+            <th>Datetime  </th>
+            <th>ReadNumber</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var at in articles)
+        {
+            <tr>
+                <td>@at.Title      </td>
+                <td>@at.Tags       </td>
+                <td>@at.Datetime   </td>
+                <td>@at.ReadNumber </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    public class ArticleListItem
+    {
+        public string Title { get; set; }
+        public string Tags { get; set; }
+        public string Datetime { get; set; }
+        public int ReadNumber { get; set; }
+    }
+    public List<ArticleListItem> articles = new List<ArticleListItem>(1);
+
+    protected override void OnInitialized()
+    {
+        articles.Add(new ArticleListItem { Title = "title_1", Tags = "#tag1 #tag2", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
+        articles.Add(new ArticleListItem { Title = "title_1", Tags = "#tag1 #tag2", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
+        articles.Add(new ArticleListItem { Title = "title_1", Tags = "#tag1 #tag2", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
+        articles.Add(new ArticleListItem { Title = "title_1", Tags = "#tag1 #tag2", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
+        articles.Add(new ArticleListItem { Title = "title_1", Tags = "#tag1 #tag2", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
+    }
 }
