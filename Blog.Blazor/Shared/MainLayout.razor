@@ -14,10 +14,8 @@
                     <a href="@(item.ItemHref)" target="@(item.ItemHref.Contains("http")?"_blank":"")" class="ml-md-2">
                         @*<span class="@(item.ItemIcon.GetIconClass().ToLowerInvariant())" aria-hidden="true"></span>*@
                         @(item.ItemName)
-                    </a>
-
+                    </a> 
                 }
-
             }
         </div>
 
@@ -28,7 +26,7 @@
 </div>
 
 @using Blog.Blazor.Models
-@code  {
+@code {
     public class TopRowItem
     {
         public string ItemName { get; set; }
@@ -41,6 +39,6 @@
     protected override void OnInitialized()
     {
         topRowMenu.Add(new TopRowItem { ItemHref = "http://blazor.net", ItemName = "About" });
-        @*topRowMenu.Add(new TopRowItem { ItemHref = "/timeline", ItemName = "Flag", ItemIcon = OpenIconc.Flag });*@
+        topRowMenu.Add(new TopRowItem { ItemHref = "/timeline", ItemName = "Flag", ItemIcon = OpenIconc.Flag });
     }
 }
