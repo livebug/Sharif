@@ -11,13 +11,14 @@
             @foreach (var item in navMenuList)
             {
                 <NavLink class="nav-link" href="@(item.ItemHref)" Match="@(string.IsNullOrWhiteSpace(item.ItemHref)? NavLinkMatch.All:NavLinkMatch.Prefix)">
-                    <span class="oi oi-@(item.ItemIcon.ToLowerInvariant())" aria-hidden="true"></span> @(item.ItemName)
+                    <span class="@(item.ItemIcon.GetIconClass().ToLowerInvariant())" aria-hidden="true"></span> @(item.ItemName)
                 </NavLink>
             }
         </li>
     </ul>
 </div>
 
+@using Blog.Blazor.Models
 @code {
     private bool collapseNavMenu = true;
 
@@ -37,17 +38,20 @@
 
     protected override void OnInitialized()
     {
-        navMenuList.Add(new NavMenuList { ItemName = "Home", ItemHref = "" ,ItemIcon="Home"});
-        navMenuList.Add(new NavMenuList { ItemName = "Counter", ItemHref = "counter" });
+        navMenuList.Add(new NavMenuList { ItemName = "Home", ItemHref = "", ItemIcon = OpenIconc.Home });
+        navMenuList.Add(new NavMenuList { ItemName = "Counter", ItemHref = "counter" ,ItemIcon=OpenIconc.Calculator});
         navMenuList.Add(new NavMenuList { ItemName = "Fetch data", ItemHref = "fetchdata" });
-        navMenuList.Add(new NavMenuList { ItemName = "Articles", ItemHref = "articles",ItemIcon = "book" });
+        navMenuList.Add(new NavMenuList { ItemName = "Articles", ItemHref = "articles", ItemIcon = OpenIconc.Book });
+        navMenuList.Add(new NavMenuList { ItemName = "Tags", ItemHref = "tags", ItemIcon = OpenIconc.Tag });
+        navMenuList.Add(new NavMenuList { ItemName = "Editer", ItemHref = "editer", ItemIcon = OpenIconc.Pencil });
+        
     }
 
     public class NavMenuList
     {
         public string ItemName { get; set; }
         public string ItemHref { get; set; }
-        public string ItemIcon { get; set; } = "list";
+        public OpenIconc ItemIcon { get; set; } = OpenIconc.List;
     }
 
 }
