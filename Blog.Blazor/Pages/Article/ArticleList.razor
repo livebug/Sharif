@@ -15,7 +15,12 @@
         {
             <tr>
                 <td>@at.Title      </td>
-                <td>@at.Tags       </td>
+                <td>
+                    @foreach (var tag in at.Tags)
+                    {
+                        <Tag>@tag</Tag>
+                    }
+                </td>
                 <td>@at.Datetime   </td>
                 <td>@at.ReadNumber </td>
             </tr>
@@ -27,7 +32,7 @@
     public class ArticleListItem
     {
         public string Title { get; set; }
-        public string Tags { get; set; }
+        public string[] Tags { get; set; } = { "#tag1", "#tag2" };
         public string Datetime { get; set; }
         public int ReadNumber { get; set; }
     }
@@ -35,10 +40,10 @@
 
     protected override void OnInitialized()
     {
-        articles.Add(new ArticleListItem { Title = "title_1", Tags = "#tag1 #tag2", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
-        articles.Add(new ArticleListItem { Title = "title_1", Tags = "#tag1 #tag2", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
-        articles.Add(new ArticleListItem { Title = "title_1", Tags = "#tag1 #tag2", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
-        articles.Add(new ArticleListItem { Title = "title_1", Tags = "#tag1 #tag2", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
-        articles.Add(new ArticleListItem { Title = "title_1", Tags = "#tag1 #tag2", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
+        articles.Add(new ArticleListItem { Title = "title_1", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
+        articles.Add(new ArticleListItem { Title = "title_1", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
+        articles.Add(new ArticleListItem { Title = "title_1", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
+        articles.Add(new ArticleListItem { Title = "title_1", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
+        articles.Add(new ArticleListItem { Title = "title_1", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
     }
 }
