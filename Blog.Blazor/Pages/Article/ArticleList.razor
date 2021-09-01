@@ -8,7 +8,6 @@
         <tr>
             <th>Title     </th>
             <th>Tags      </th>
-            <th>Content</th>
             <th>Updatedtime  </th>
         </tr>
     </thead>
@@ -23,7 +22,6 @@
                         <Tag>@tag</Tag>
                     }
                 </td>
-                <td>@(post.Content) </td>
                 <td>@(post.Updated)   </td>
             </tr>
         }
@@ -32,10 +30,10 @@
 
 @inject HexoService hexo
 @code {
-    public Post[] posts;
+    public IList<Post> posts;
 
     protected override void OnInitialized()
     {
-        posts = hexo.GetAllPosts();
+        posts = hexo.GetAllPosts().Where(e=>!string.IsNullOrWhiteSpace(e.Title)).ToList();
     }
 }

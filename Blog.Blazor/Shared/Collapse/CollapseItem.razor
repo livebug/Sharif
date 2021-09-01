@@ -1,17 +1,14 @@
 ﻿@*<h3>CollapseItem</h3>*@
 
 <div class="card">
-    <div class="card-header" id="headingOne">
-        <h2 class="mb-0">
-            <button class="btn btn-block text-left" type="button" @onclick="OnClickChangeCollapse">
+    <div class="card-header" id="headingOne" @onclick="OnClickChangeCollapse">
+        <div class="mb-0">
                 @Text
-            </button>
-        </h2>
+        </div>
     </div>
 
     <div id="collapseOne" class="@(isCollapse ? "show" : "collapse")">
         <div class="card-body">
-            @isCollapse
             @ChildContent
         </div>
     </div>

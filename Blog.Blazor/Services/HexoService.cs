@@ -48,10 +48,32 @@ namespace Blog.Blazor.Services
 
         }
 
-        public Post[] GetAllPosts()
+        public IEnumerable<Post> GetAllPosts()
         {
             return _hexoContent.Post.ToArray();
         }
+
+        public IEnumerable<TagTreeItem> GetTagTree()
+        {
+            var tagTree = new List<TagTreeItem>();
+            foreach (var tag in _hexoContent.Tag)
+            {
+                var posts = _hexoContent.PostTag.Where(e => e.TagId == tag.Id).Select(e => e.PostId);
+                tagTree.Add(new TagTreeItem
+                {
+                    Tag = tag,
+                    Posts = _hexoContent.Post.Where(e => posts.Contains(e.Id))
+                });
+            }
+            return tagTree;
+        }
+    }
+
+    public class TagTreeItem
+        {
+        public Category Tag { get; set; }
+        public IEnumerable<Post> Posts { get; set; }
+
     }
 
     public partial class Hexo
