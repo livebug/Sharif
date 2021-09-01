@@ -34,6 +34,7 @@ namespace Blog.Blazor.Models.hexo
         public long Comments { get; set; }
 
         [JsonPropertyName("layout")]
+        [JsonIgnore]
         public Layout Layout { get; set; }
 
         [JsonPropertyName("photos")]

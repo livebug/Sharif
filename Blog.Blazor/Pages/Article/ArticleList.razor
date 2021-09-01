@@ -1,4 +1,6 @@
-﻿<h3>ArticleList</h3>
+﻿@using Blog.Blazor.Models.hexo
+@using Blog.Blazor.Services
+<h3>ArticleList</h3>
 
 
 <table class="table">
@@ -6,44 +8,34 @@
         <tr>
             <th>Title     </th>
             <th>Tags      </th>
-            <th>Datetime  </th>
-            <th>ReadNumber</th>
+            <th>Content</th>
+            <th>Updatedtime  </th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var at in articles)
+        @foreach (var post in posts)
         {
             <tr>
-                <td>@at.Title      </td>
+                <td>@(post.Title)      </td>
                 <td>
-                    @foreach (var tag in at.Tags)
-                    {
+                    @foreach (var tag in new string[]{"#tag1","#tag2"})
+                        {
                         <Tag>@tag</Tag>
                     }
                 </td>
-                <td>@at.Datetime   </td>
-                <td>@at.ReadNumber </td>
+                <td>@(post.Content) </td>
+                <td>@(post.Updated)   </td>
             </tr>
         }
     </tbody>
 </table>
 
+@inject HexoService hexo
 @code {
-    public class ArticleListItem
-    {
-        public string Title { get; set; }
-        public string[] Tags { get; set; } = { "#tag1", "#tag2" };
-        public string Datetime { get; set; }
-        public int ReadNumber { get; set; }
-    }
-    public List<ArticleListItem> articles = new List<ArticleListItem>(1);
+    public Post[] posts;
 
     protected override void OnInitialized()
     {
-        articles.Add(new ArticleListItem { Title = "title_1", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
-        articles.Add(new ArticleListItem { Title = "title_1", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
-        articles.Add(new ArticleListItem { Title = "title_1", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
-        articles.Add(new ArticleListItem { Title = "title_1", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
-        articles.Add(new ArticleListItem { Title = "title_1", Datetime = DateTime.Now.ToString(), ReadNumber = 10 });
+        posts = hexo.GetAllPosts();
     }
 }
