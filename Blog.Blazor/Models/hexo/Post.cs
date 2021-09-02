@@ -57,6 +57,9 @@ namespace Blog.Blazor.Models.hexo
 
         [JsonPropertyName("more")]
         public string More { get; set; }
+
+        [JsonIgnore]
+        public IEnumerable<Category> Tags { get; set; }
     }
     public enum Layout { Post };
 }

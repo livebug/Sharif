@@ -26,6 +26,7 @@ namespace Blog.Blazor.Services
             {
                 var hexo = await _http.GetFromJsonAsync<Hexo>("sample-data/hexodb.json");
                 _hexoContent = hexo.HexoContent;
+                FillPostTag();
             }
             catch (Exception)
             {
@@ -39,6 +40,7 @@ namespace Blog.Blazor.Services
             {
                 var hexo = await _http.GetFromJsonAsync<Hexo>("sample-data/hexodb.json");
                 _hexoContent = hexo.HexoContent;
+                FillPostTag();
             }
             catch (Exception)
             {
@@ -46,6 +48,16 @@ namespace Blog.Blazor.Services
                 throw;
             }
 
+        }
+        public void FillPostTag()
+        {
+            for (int i = 0; i < _hexoContent.Post.Count; i++)
+            {
+                var post_id = _hexoContent.Post[i].Id;
+                var tag_ids = _hexoContent.PostTag.Where(e => e.PostId == post_id).Select(e => e.TagId);
+                var tags = _hexoContent.Tag.Join(tag_ids, e => e.Id, id => id, (tag,id) => tag);
+                _hexoContent.Post[i].Tags = tags;
+            }
         }
 
         public IEnumerable<Post> GetAllPosts()

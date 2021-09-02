@@ -1,4 +1,4 @@
-﻿@page "/tags"
+﻿@page "/tags/{Id?}"
 @using Blog.Blazor.Models.hexo
 @using Blog.Blazor.Services
 
@@ -51,5 +51,21 @@
     public void OnClick1(TagTreeItem item)
     {
         ChoosedTagTreeItem = item;
+    }
+
+    [Parameter]
+    public string Id { get; set; }
+
+    protected override Task OnParametersSetAsync()
+    {
+        if (Id is not null && !string.IsNullOrWhiteSpace(Id) && TagTree.Exists(e => e.Tag.Id == Id))
+        {
+            ChoosedTagTreeItem = TagTree.Find(e => e.Tag.Id == Id);
+        }
+        else
+        {
+            ChoosedTagTreeItem = TagTree[0];
+        }
+        return base.OnParametersSetAsync();
     }
 }

@@ -1,4 +1,4 @@
-﻿@page "/articles/{id?}"
+﻿@page "/articles/{Id?}"
 @using Blog.Blazor.Pages.Article
 <h1>Articles</h1> 
 
@@ -20,21 +20,20 @@ else
 
     public Blog.Blazor.Models.hexo.Post post { get; set; }
 
-    protected override void OnParametersSet()
+    public override Task SetParametersAsync(ParameterView parameters)
     {
-        // 如果 Id为空则展示文章列表
-        // 否则 根据Id查询相应文章，展示文章内容
-        if (string.IsNullOrWhiteSpace(Id))
+         if (parameters.TryGetValue<string>(nameof(Id), out var value))
         {
-            HasID = false;
-        }
-
-        if (HasID)
-        {
-            post = hexo.GetAllPosts().First(e => e.Id == Id);
-        }
-        else
-        {
-        }
+            if (value is null || string.IsNullOrWhiteSpace(value))
+            {
+                HasID = false;
+            }
+            else
+            {
+                HasID = true;
+                post = hexo.GetAllPosts().First(e => e.Id == value);
+            }
+        } 
+        return base.SetParametersAsync(parameters);
     }
 }

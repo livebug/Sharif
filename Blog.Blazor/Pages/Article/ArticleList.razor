@@ -15,11 +15,11 @@
         @foreach (var post in posts)
         {
             <tr>
-                <td>@(post.Title)      </td>
+                <td><a href="/articles/@(post.Id)">@(post.Title)</a>      </td>
                 <td>
-                    @foreach (var tag in new string[]{"#tag1","#tag2"})
+                    @foreach (var tag in post.Tags)
                         {
-                        <Tag>@tag</Tag>
+                        <Tag Href=@(tag.Id) >@(tag.Name)</Tag>
                     }
                 </td>
                 <td>@(post.Updated)   </td>
@@ -32,7 +32,7 @@
 @code {
     public IList<Post> posts;
 
-    protected override void OnInitialized()
+    protected override void OnParametersSet()
     {
         posts = hexo.GetAllPosts().Where(e=>!string.IsNullOrWhiteSpace(e.Title)).ToList();
     }
