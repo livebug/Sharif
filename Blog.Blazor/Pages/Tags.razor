@@ -11,18 +11,24 @@
         <div class="list-group" id="list-tab" role="tablist">
             @foreach (var item in TagTree)
             {
-                <a class="list-group-item list-group-item-action" @onclick=@(e=>OnClick1(item)) >@(item.Tag.Name)
-                     <span class="badge badge-primary badge-pill">@(item.Posts.Count())</span>
+                <a class="list-group-item list-group-item-action" @onclick=@(e=>OnClick1(item))>
+                    @(item.Tag.Name)
+                    <span class="badge badge-primary badge-pill">@(item.Posts.Count())</span>
                 </a>
             }
         </div>
     </div>
     <div class="col-8">
         <div class="tab-content" id="nav-tabContent">
-            @foreach (var post in ChoosedTagTreeItem.Posts)
-            {
-                <div>@(post.Title)</div>
-            }
+            <ul>
+
+                @foreach (var post in ChoosedTagTreeItem.Posts)
+                {
+                    <li>
+                        <a href="/articles/@(post.Id)">@(post.Title)</a>
+                    </li>
+                }
+            </ul>
         </div>
     </div>
 </div>
@@ -34,13 +40,13 @@
 
     protected override void OnInitialized()
     {
-        TagTree = hexo.GetTagTree().OrderByDescending( a=> a.Posts.Count()).ToList();
+        TagTree = hexo.GetTagTree().OrderByDescending(a => a.Posts.Count()).ToList();
         ChoosedTagTreeItem = TagTree[0];
     }
 
     public TagTreeItem ChoosedTagTreeItem { get; set; }
     //严重性	代码	说明	项目	文件	行	禁止显示状态
-//错误(活动)	CS1503	参数 2: 无法从“System.Threading.Tasks.Task”转换为“Microsoft.AspNetCore.Components.EventCallback”	Blog.Blazor	C:\Sharif\Blog.Blazor\Pages\Tags.razor	26	
+    //错误(活动)	CS1503	参数 2: 无法从“System.Threading.Tasks.Task”转换为“Microsoft.AspNetCore.Components.EventCallback”	Blog.Blazor	C:\Sharif\Blog.Blazor\Pages\Tags.razor	26
 
     public void OnClick1(TagTreeItem item)
     {

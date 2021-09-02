@@ -1,6 +1,21 @@
-﻿<h3>Article @Id Content</h3>
+﻿<a href="/articles/">返回文章列表</a>
 
-@code {
-     [Parameter]
-    public string Id { get; set; } = "Set By Child";
+@if (post is null)
+{
+    <p>...</p>
 }
+else
+{
+    @convertedMarkdown
+ }
+ @code {
+     private MarkupString convertedMarkdown;
+     [Parameter]
+     public Blog.Blazor.Models.hexo.Post post{ get; set; }
+
+     protected override void OnParametersSet()
+     {
+           
+         convertedMarkdown = (MarkupString)post.PostContent; // or new MarkupString(html)
+     }
+ }

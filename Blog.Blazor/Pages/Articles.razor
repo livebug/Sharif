@@ -2,37 +2,39 @@
 @using Blog.Blazor.Pages.Article
 <h1>Articles</h1> 
 
-@if (IsListOrContent)
+@if (HasID && post is not null)
 {
-    <ArticleList></ArticleList>
+    <ArticleContent post=post></ArticleContent>
 }
 else
 {
-    <ArticleContent Id="@Id"></ArticleContent>
+    <ArticleList></ArticleList>
 }
 
+@inject Blog.Blazor.Services.HexoService hexo
 @code {
     [Parameter]
     public string Id { get; set; }
 
-    public bool IsListOrContent = false;
+    public bool HasID = true;
 
-    protected override void OnInitialized()
+    public Blog.Blazor.Models.hexo.Post post { get; set; }
+
+    protected override void OnParametersSet()
     {
         // 如果 Id为空则展示文章列表
         // 否则 根据Id查询相应文章，展示文章内容
         if (string.IsNullOrWhiteSpace(Id))
         {
-            IsListOrContent = true;
+            HasID = false;
         }
 
-        if (IsListOrContent)
+        if (HasID)
         {
-            Console.WriteLine(this.ToString()+ "文章列表");
+            post = hexo.GetAllPosts().First(e => e.Id == Id);
         }
         else
         {
-            Console.WriteLine($"文章{Id}内容");
         }
     }
 }
