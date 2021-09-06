@@ -79,6 +79,18 @@ namespace Blog.Blazor.Services
             }
             return tagTree;
         }
+
+        public IReadOnlyDictionary<Category,IEnumerable<Post>> GetTagPostsDict()
+        {
+            var res = new Dictionary<Category, IEnumerable<Post>>();
+            foreach (var tag in _hexoContent.Tag)
+            {
+                var post_ids = _hexoContent.PostTag.Where(e => e.TagId == tag.Id).Select(e => e.PostId);
+                var posts = _hexoContent.Post.Where(e => post_ids.Contains(e.Id));
+                res.Add(tag, posts);
+            }
+            return res;
+        }
     }
 
     public class TagTreeItem

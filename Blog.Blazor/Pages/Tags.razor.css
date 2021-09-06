@@ -1,0 +1,13 @@
+﻿
+.tag-list-tab {
+    display:none;
+}
+
+@media (min-width: 641px) { 
+    .tag-accordion-card {
+        display:none;
+    }
+    .tag-list-tab {
+        display:flex;
+    }
+}

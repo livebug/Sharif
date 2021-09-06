@@ -1,16 +1,31 @@
 ﻿@page "/counter"
 
-<h1>Counter</h1>
+@page "/pets1"
 
-<p>Current count: @currentCount</p>
+<h1>Pets</h1>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<TableTemplate Items="pets" Context="pet">
+    <TableHeader>
+        <th>ID</th>
+        <th>Name</th>
+    </TableHeader>
+    <RowTemplate>
+        <td>@pet.PetId</td>
+        <td>@pet.Name</td>
+    </RowTemplate>
+</TableTemplate>
 
 @code {
-    private int currentCount = 0;
-
-    private void IncrementCount()
+    private List<Pet> pets = new()
     {
-        currentCount++;
+        new Pet { PetId = 2, Name = "Mr. Bigglesworth" },
+        new Pet { PetId = 4, Name = "Salem Saberhagen" },
+        new Pet { PetId = 7, Name = "K-9" }
+    };
+
+    private class Pet
+    {
+        public int PetId { get; set; }
+        public string Name { get; set; }
     }
 }

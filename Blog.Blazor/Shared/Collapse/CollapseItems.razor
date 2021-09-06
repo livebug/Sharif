@@ -1,0 +1,60 @@
+﻿@typeparam TItem
+@typeparam TItem1
+@foreach (var item in Items)
+{
+    <div class="card">
+        <div class="card-header" id="headingOne" @onclick="(()=>OnClickChangeCollapse(item.Key))">
+            @CardHeader(item.Key)
+        </div>
+
+        <div id="collapseOne" class="@(collapseClass[item.Key] ? "show" : "collapse")">
+            <div class="card-body">
+                @CardBody(item.Value)
+            </div>
+        </div>
+    </div>
+}
+@code {
+
+
+    [Parameter]
+    public RenderFragment<TItem> CardHeader { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem1> CardBody { get; set; }
+
+    [Parameter]
+    public IReadOnlyDictionary<TItem, TItem1> Items { get; set; }
+
+    Dictionary<TItem, bool> collapseClass;
+
+    public bool IsAccordion = true;
+
+    protected override Task OnInitializedAsync()
+    {
+        collapseClass = new Dictionary<TItem, bool>();
+        foreach (var item in Items)
+        {
+            collapseClass.Add(item.Key, false);
+        }
+        return base.OnInitializedAsync();
+    }
+
+    protected override Task OnParametersSetAsync()
+    {
+
+        return base.OnParametersSetAsync();
+    }
+
+    private void OnClickChangeCollapse(TItem key)
+    {
+        collapseClass[key] = !collapseClass[key];
+        if (IsAccordion)
+        {
+            foreach (var k in collapseClass.Where(e => e.Value == true && !e.Key.Equals(key)))
+            {
+                collapseClass[k.Key] = false;
+            }
+        }
+    }
+}

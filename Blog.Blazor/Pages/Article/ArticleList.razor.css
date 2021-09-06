@@ -1,0 +1,9 @@
+﻿.updatetime-col {
+	display:none;
+}
+
+@media (min-width: 641px) { 
+	.updatetime-col {
+		display: table-cell;
+	}
+}

@@ -1,6 +1,6 @@
 ﻿@using Blog.Blazor.Models.hexo
 @using Blog.Blazor.Services
-<h3>ArticleList</h3>
+@*<h3>ArticleList</h3>*@
 
 
 <table class="table">
@@ -8,7 +8,7 @@
         <tr>
             <th>Title     </th>
             <th>Tags      </th>
-            <th>Updatedtime  </th>
+            <th class="updatetime-col">Updatedtime  </th>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +22,7 @@
                         <Tag Href=@(tag.Id) >@(tag.Name)</Tag>
                     }
                 </td>
-                <td>@(post.Updated)   </td>
+                <td class="updatetime-col">@(post.Updated)   </td>
             </tr>
         }
     </tbody>

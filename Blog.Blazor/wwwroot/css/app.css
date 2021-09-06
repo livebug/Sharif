@@ -48,3 +48,15 @@ a, .btn-link {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+
+
+
+.page-title {
+    font-family:'Times New Roman', Times, serif;
+    /*align-content:center;*/
+    /*font-size:large;*/
+    font-weight:bold;
+    text-align:center;
+}
+
