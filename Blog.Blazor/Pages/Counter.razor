@@ -1,31 +1,31 @@
 ﻿@page "/counter"
 
-@page "/pets1"
 
-<h1>Pets</h1>
+<h3>Counter</h3>
 
-<TableTemplate Items="pets" Context="pet">
-    <TableHeader>
-        <th>ID</th>
-        <th>Name</th>
-    </TableHeader>
-    <RowTemplate>
-        <td>@pet.PetId</td>
-        <td>@pet.Name</td>
-    </RowTemplate>
-</TableTemplate>
+<p class="lead">Sum:@count</p>
+
+<button class="btn btn-primary" @onclick="Count1">Count</button>
+<button class="btn btn-primary" @onclick="Reset">Reset</button>
 
 @code {
-    private List<Pet> pets = new()
-    {
-        new Pet { PetId = 2, Name = "Mr. Bigglesworth" },
-        new Pet { PetId = 4, Name = "Salem Saberhagen" },
-        new Pet { PetId = 7, Name = "K-9" }
-    };
+    /// <summary>
+    /// 计数值 
+    /// </summary>
+    /// <value>默认是 1 </value>
+    public int count { get; set; } = 1;
 
-    private class Pet
+    /// <summary>
+    /// 计数累加
+    /// </summary>
+    public void Count1()
     {
-        public int PetId { get; set; }
-        public string Name { get; set; }
+        count +=2;
     }
+
+    public void Reset()
+    {
+        count = 1;
+    }
+   
 }

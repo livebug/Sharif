@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "ms-dotnettools.csharp",
+        "ms-edgedevtools.vscode-edge-devtools",
+        "msjsdiag.debugger-for-edge",
+        "kevin-chatham.aspnetcorerazor-html-css-class-completion",
+        "k--kato.docomment",
+        "ecmel.vscode-html-css"
+    ]
+}

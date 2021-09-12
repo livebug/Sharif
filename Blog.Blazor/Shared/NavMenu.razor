@@ -11,9 +11,9 @@
             @foreach (var item in navMenuList)
             {
                 <NavLink class="nav-link" href="@(item.ItemHref)" Match="@(string.IsNullOrWhiteSpace(item.ItemHref)? NavLinkMatch.All:NavLinkMatch.Prefix)">
-                    <span class="@(item.ItemIcon.GetIconClass().ToLowerInvariant())" aria-hidden="true"></span> @(item.ItemName)
+                    <span class="oi @(item.ItemIcon)" aria-hidden="true"></span> @(item.ItemName)
                 </NavLink>
-            }
+            }            
         </li>
     </ul>
 </div>
@@ -38,20 +38,37 @@
 
     protected override void OnInitialized()
     {
-        navMenuList.Add(new NavMenuList { ItemName = "Home", ItemHref = "", ItemIcon = OpenIconc.Home });
+        navMenuList.Add(new NavMenuList { ItemName = "Home", ItemHref = "", ItemIcon = (OpenIconc.Home) });
         navMenuList.Add(new NavMenuList { ItemName = "Counter", ItemHref = "counter" ,ItemIcon=OpenIconc.Calculator});
-        navMenuList.Add(new NavMenuList { ItemName = "Fetch data", ItemHref = "fetchdata" });
+        navMenuList.Add(new NavMenuList { ItemName = "Fetch data", ItemHref = "fetchdata", ItemIcon=OpenIconc.List});
         navMenuList.Add(new NavMenuList { ItemName = "Articles", ItemHref = "articles", ItemIcon = OpenIconc.Book });
         navMenuList.Add(new NavMenuList { ItemName = "Tags", ItemHref = "tags", ItemIcon = OpenIconc.Tags });
         navMenuList.Add(new NavMenuList { ItemName = "Editer", ItemHref = "editer", ItemIcon = OpenIconc.Pencil });
-        
+        navMenuList.Add(new NavMenuList { ItemName = "Timeline", ItemHref = "timeline", ItemIcon = BootstrapIcon.PUZZLE_FILL });
+        navMenuList.Add(new NavMenuList { ItemName = "Components", ItemHref = "components", ItemIcon = BootstrapIcon.GRID_FILL });
     }
 
     public class NavMenuList
     {
+        private object _itemicon;
         public string ItemName { get; set; }
         public string ItemHref { get; set; }
-        public OpenIconc ItemIcon { get; set; } = OpenIconc.List;
+        public object ItemIcon
+        {
+            get
+            {
+                return _itemicon switch
+                {
+                    OpenIconc o => o.GetIconClass().ToLowerInvariant(),
+                    BootstrapIcon b => b.GetIconClass(),
+                    _ => ""
+                };
+            }
+            set
+            {
+                _itemicon = value;
+            }
+        }
     }
 
 }

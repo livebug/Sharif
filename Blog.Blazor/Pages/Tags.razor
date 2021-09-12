@@ -1,12 +1,13 @@
 ﻿@page "/tags/{Id?}"
 @using Blog.Blazor.Models.hexo
 @using Blog.Blazor.Services
+@using Blog.Blazor.Components
 
 <h1 class="page-title">标签树</h1>
 
 <div class="tag-accordion-card">
     tag-card
-    <Blog.Blazor.Shared.Collapse.CollapseItems Items=TagPostsDict TItem="Category" TItem1="IEnumerable<Post>">
+    <CollapseItems Items=TagPostsDict TItem="Category" TItem1="IEnumerable<Post>">
         <CardHeader Context="tag">
             <div class="mb-0">
                 @tag.Name
@@ -22,7 +23,7 @@
                 }
             </ul>
         </CardBody>
-    </Blog.Blazor.Shared.Collapse.CollapseItems>
+    </CollapseItems>
 </div>
 
 
@@ -54,10 +55,13 @@
 
 @inject HexoService hexo
 @code {
+    [Parameter]
+    public string Id { get; set; }
 
     public IReadOnlyDictionary<Category, IEnumerable<Post>> TagPostsDict { get; set; }
-
     public List<TagTreeItem> TagTree { get; set; }
+    public TagTreeItem ChoosedTagTreeItem { get; set; }
+
 
     protected override void OnInitialized()
     {
@@ -67,17 +71,12 @@
         TagPostsDict = hexo.GetTagPostsDict().OrderByDescending(e=>e.Value.Count()).ToDictionary(a=>a.Key,b=>b.Value);
     }
 
-    public TagTreeItem ChoosedTagTreeItem { get; set; }
-    //严重性	代码	说明	项目	文件	行	禁止显示状态
-    //错误(活动)	CS1503	参数 2: 无法从“System.Threading.Tasks.Task”转换为“Microsoft.AspNetCore.Components.EventCallback”	Blog.Blazor	C:\Sharif\Blog.Blazor\Pages\Tags.razor	26
 
     public void OnClick1(TagTreeItem item)
     {
         ChoosedTagTreeItem = item;
     }
 
-    [Parameter]
-    public string Id { get; set; }
 
     protected override Task OnParametersSetAsync()
     {

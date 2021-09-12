@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Blog.Blazor.Models
@@ -455,28 +454,5 @@ namespace Blog.Blazor.Models
         AccountLogout,
         [Description("Account-Login")]
         AccountLogin
-    }
-
-    public static class EnumExtension
-    {
-        /// <summary>
-        /// 生成open iconic 图标库的 css 枚举类
-        /// 该方法返回class内容
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static string GetIconClass(this OpenIconc value)
-        {
-            FieldInfo fi = value.GetType().GetField(value.ToString());
-            DescriptionAttribute[] attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
-            if (attributes.Length > 0)
-            {
-                return "oi oi-" + attributes[0].Description;
-            }
-            else
-            {
-                return value.ToString();
-            }
-        }
     }
 }
