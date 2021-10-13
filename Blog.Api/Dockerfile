@@ -10,6 +10,8 @@ ENV LIBPATH=/app/odbc_cli/clidriver/lib
 ENV PATH=/app/odbc_cli/clidriver/bin:$PATH
 ENV PATH=/app/odbc_cli/clidriver/adm:$PATH
 ENV PATH=/app/odbc_cli/clidriver/lib:$PATH
+ENV ASPNETCORE_HTTPS_PORT="4399"
+ENV ASPNETCORE_ENVIRONMENT=Production
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
@@ -27,4 +29,4 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Blog.Api.dll"]
 
-# docker exec -i -e ASPNETCORE_HTTPS_PORT="49157" -w "/app" 7fe77eaa1969d342c758fd71adbe902ffb7cab878a057746ea417bd8aca28500 sh -c ""dotnet" \"WebApplication1.dll\" | tee /dev/console"
+# docker exec -i -e ASPNETCORE_HTTPS_PORT="49163" -w "/app" 27f99f778bd1e9ce72e2a565041f285f9c090bacb2fb365ef3ee173efacd29e1 sh -c ""dotnet" --additionalProbingPath /root/.nuget/fallbackpackages3 --additionalProbingPath /root/.nuget/fallbackpackages --additionalProbingPath /root/.nuget/fallbackpackages2  \"/app/bin/x64/Debug/net6.0/Blog.Api.dll\" | tee /dev/console"
