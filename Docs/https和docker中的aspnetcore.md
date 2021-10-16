@@ -46,11 +46,11 @@ docker run -dt `
 
 
 
--e DB2_CLI_DRIVER_INSTALL_PATH=/app/odbc_cli/clidriver
--e LD_LIBRARY_PATH=/app/odbc_cli/clidriver/lib
--e LIBPATH=/app/odbc_cli/clidriver/lib
--e PATH=/app/odbc_cli/clidriver/bin:$PATH
--e PATH=/app/odbc_cli/clidriver/adm:$PATH
--e PATH=/app/odbc_cli/clidriver/lib:$PATH
--e ASPNETCORE_HTTPS_PORT="4399"
--e ASPNETCORE_ENVIRONMENT=Production
+ENV DB2_CLI_DRIVER_INSTALL_PATH=/app/odbc_cli/clidriver
+ENV LD_LIBRARY_PATH=/app/odbc_cli/clidriver/lib
+ENV LIBPATH=/app/odbc_cli/clidriver/lib
+ENV PATH=/app/odbc_cli/clidriver/bin:$PATH
+ENV PATH=/app/odbc_cli/clidriver/adm:$PATH
+ENV PATH=/app/odbc_cli/clidriver/lib:$PATH
+ENV ASPNETCORE_HTTPS_PORT="4399"
+ENV ASPNETCORE_ENVIRONMENT=Production
