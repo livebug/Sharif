@@ -1,0 +1,16 @@
+GET http://localhost:4396/api/areacode/310100000000/subs HTTP/1.1
+
+###
+GET http://localhost:4396/api/areacode/top HTTP/1.1
+
+###
+GET https://localhost:4397/api/areacode/310100000000/subs 
+
+###
+GET https://localhost:4397/api/areacode/top 
+
+###
+GET https://localhost:4397/api/areacode/tops 
+
+###
+GET https://localhost:4397/api/areacode/31010000000/subs 
