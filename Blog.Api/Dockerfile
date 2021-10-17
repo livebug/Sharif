@@ -4,14 +4,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
-ENV DB2_CLI_DRIVER_INSTALL_PATH=/app/odbc_cli/clidriver
-ENV LD_LIBRARY_PATH=/app/odbc_cli/clidriver/lib
-ENV LIBPATH=/app/odbc_cli/clidriver/lib
-ENV PATH=/app/odbc_cli/clidriver/bin:$PATH
-ENV PATH=/app/odbc_cli/clidriver/adm:$PATH
-ENV PATH=/app/odbc_cli/clidriver/lib:$PATH
-ENV ASPNETCORE_HTTPS_PORT="4399"
-ENV ASPNETCORE_ENVIRONMENT=Production
+ENV DB2_CLI_DRIVER_INSTALL_PATH=/app/odbc_cli/clidriver  LD_LIBRARY_PATH=/app/odbc_cli/clidriver/lib  LIBPATH=/app/odbc_cli/clidriver/lib  PATH=/app/odbc_cli/clidriver/bin:/app/odbc_cli/clidriver/adm:/app/odbc_cli/clidriver/lib:$PATH
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
