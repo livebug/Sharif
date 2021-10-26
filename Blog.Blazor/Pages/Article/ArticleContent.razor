@@ -1,4 +1,5 @@
-﻿<a href="/articles/">返回文章列表</a>
+﻿@using Markdig
+<a href="/articles/">返回文章列表</a>
 
 @if (post is null)
 {
@@ -6,16 +7,20 @@
 }
 else
 {
-    @convertedMarkdown
- }
- @code {
-     private MarkupString convertedMarkdown;
-     [Parameter]
-     public Blog.Blazor.Models.hexo.Post post{ get; set; }
+    <div class="markdown-body">
+        @convertedMarkdown
+    </div>
+}
+@code {
+    private MarkupString convertedMarkdown;
+    [Parameter]
+    public Blog.Blazor.Models.hexo.Post post { get; set; }
 
-     protected override void OnParametersSet()
-     {
-           
-         convertedMarkdown = (MarkupString)post.PostContent; // or new MarkupString(html)
-     }
- }
+    protected override void OnParametersSet()
+    {
+        var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions()
+        .UseGridTables()
+        .UseBootstrap().Build();
+        convertedMarkdown = (MarkupString)Markdig.Markdown.ToHtml(post.Content, pipeline);
+    }
+}

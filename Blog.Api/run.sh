@@ -1,3 +1,5 @@
+# db2server
+docker run -h db2server --name db2server --restart=always --detach --privileged=true -p 50000:50000 --env-file .env_list -v /Docker:/database db2server/shadb --network blog
 # 网络
 docker network connect blog db2server
 # 构建镜像
