@@ -13,10 +13,8 @@
     },
     "Docker": {
       "commandName": "Docker",
-      "commandLineArgs": "--network blog",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
-      "DockerfileRunArguments": "--link db2server",
       "publishAllPorts": true,
       "useSSL": true
     },
