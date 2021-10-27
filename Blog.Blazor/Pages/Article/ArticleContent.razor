@@ -1,4 +1,6 @@
 ﻿@using Markdig
+@implements IAsyncDisposable
+@inject IJSRuntime JS
 <a href="/articles/">返回文章列表</a>
 
 @if (post is null)
@@ -7,18 +9,43 @@
 }
 else
 {
-    <div class="markdown-body">
-        @convertedMarkdown
+    <div class="row">
+        <div class="markdown-body col-md-9">
+            @convertedMarkdown
+        </div>
+        <div class="col-md-3 border-top bd-toc">
+            2
+        </div>
     </div>
+
 }
+
 @code {
     private MarkupString convertedMarkdown;
     [Parameter]
     public Blog.Blazor.Models.hexo.Post post { get; set; }
 
+    private IJSObjectReference module;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/script.js");
+            await module.InvokeVoidAsync("myfunction", post.Id);
+        }
+    }
+        async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if (module is not null)
+        {
+            await module.DisposeAsync();
+        }
+    }
+
     protected override void OnParametersSet()
     {
-        var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions()
+        var pipeline = new MarkdownPipelineBuilder()
+        .UseAdvancedExtensions()
         .UseGridTables()
         .UseBootstrap().Build();
         convertedMarkdown = (MarkupString)Markdig.Markdown.ToHtml(post.Content, pipeline);
