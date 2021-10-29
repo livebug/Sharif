@@ -60,3 +60,13 @@ a, .btn-link {
     text-align:center;
 }
 
+
+/* 因为markdig生成的html代码，所以blazor的隔离Css对其不起作用
+为了满足导航滚动可以正常使用，需要将锚点h标签处理，
+防止标签被其他样式覆盖使用!important 强制
+padding 影响锚点元素的定位，margin 不影响锚点元素的定位。所以使用 padding 调整锚点元素跳转后的位置，再使用 margin 抵消 padding 对布局的影响。
+*/
+.markdown-body h1,h2,h3,h4,h5,h6 {
+    padding-top : 60px !important;
+    margin-top: -60px !important; 
+}

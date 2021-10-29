@@ -10,35 +10,31 @@
 else
 {
     <div class="row">
-        <div class="markdown-body col-md-9">
+        <div id="blog-markdown-body" class="markdown-body col-md-9">
             @convertedMarkdown
         </div>
         <div class="col-md-3 border-top bd-toc">
-            2
+            <ul id="blog-markdown-toc" >
+
+            </ul>
         </div>
     </div>
 
 }
 
 @code {
-    private MarkupString convertedMarkdown;
     [Parameter]
     public Blog.Blazor.Models.hexo.Post post { get; set; }
 
+    private MarkupString convertedMarkdown;
     private IJSObjectReference module;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
             module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/script.js");
-            await module.InvokeVoidAsync("myfunction", post.Id);
-        }
-    }
-        async ValueTask IAsyncDisposable.DisposeAsync()
-    {
-        if (module is not null)
-        {
-            await module.DisposeAsync();
+            await module.InvokeVoidAsync("myfunction");
         }
     }
 
@@ -49,5 +45,13 @@ else
         .UseGridTables()
         .UseBootstrap().Build();
         convertedMarkdown = (MarkupString)Markdig.Markdown.ToHtml(post.Content, pipeline);
+    }
+    
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if (module is not null)
+        {
+            await module.DisposeAsync();
+        }
     }
 }
