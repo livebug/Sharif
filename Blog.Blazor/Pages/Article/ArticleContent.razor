@@ -13,11 +13,8 @@ else
         <div id="blog-markdown-body" class="markdown-body col-md-9">
             @convertedMarkdown
         </div>
-        <div class="col-md-3 border-top bd-toc">
-            <ul id="blog-markdown-toc" >
-
-            </ul>
-        </div>
+        <ul id="blog-markdown-toc" class="col-md-3">
+        </ul>
     </div>
 
 }
@@ -46,7 +43,7 @@ else
         .UseBootstrap().Build();
         convertedMarkdown = (MarkupString)Markdig.Markdown.ToHtml(post.Content, pipeline);
     }
-    
+
     async ValueTask IAsyncDisposable.DisposeAsync()
     {
         if (module is not null)

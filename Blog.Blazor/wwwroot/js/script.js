@@ -31,6 +31,6 @@ function printTitle(headerTag, element) {
     let toc = document.getElementById('blog-markdown-toc');
     toc.setAttribute('style', 'font-size:0.5em;');
     let root = window.location.href.replace(window.location.hash,''); 
-    toc.innerHTML += '<li><a style=\'padding-left: ' + (headerTag - 1) + 'rem;\' href=\'' + root + '#' + element.getAttribute('id') + '\'  target=\'_top\' >' + element.innerHTML + ' ' + '</a></li>';
+    toc.innerHTML += '<li  style=\'padding-left: ' + (headerTag - 1)*0.5 + 'rem;\'><a href=\'' + root + '#' + element.getAttribute('id') + '\'  target=\'_top\' >' + element.innerHTML + ' ' + '</a></li>';
     console.log(headerTag + ' ' + element.getAttribute('id'));
 }

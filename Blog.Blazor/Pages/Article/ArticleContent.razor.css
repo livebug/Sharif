@@ -1,5 +1,5 @@
 ﻿@media (min-width: 992px) {
-    .bd-toc {
+    #blog-markdown-toc {
         position: -webkit-sticky;
         position: sticky;
         top: 5rem;

@@ -1,5 +1,6 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 @import url('bootstrap-icons-1.5.0/bootstrap-icons.css');
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -53,11 +54,11 @@ a, .btn-link {
 
 
 .page-title {
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     /*align-content:center;*/
     /*font-size:large;*/
-    font-weight:bold;
-    text-align:center;
+    font-weight: bold;
+    text-align: center;
 }
 
 
@@ -66,7 +67,27 @@ a, .btn-link {
 防止标签被其他样式覆盖使用!important 强制
 padding 影响锚点元素的定位，margin 不影响锚点元素的定位。所以使用 padding 调整锚点元素跳转后的位置，再使用 margin 抵消 padding 对布局的影响。
 */
-.markdown-body h1,h2,h3,h4,h5,h6 {
-    padding-top : 60px !important;
-    margin-top: -60px !important; 
+.markdown-body h1, h2, h3, h4, h5, h6 {
+    padding-top: 60px !important;
+    margin-top: -60px !important;
 }
+
+#blog-markdown-toc {
+    border-left: 1px solid #eee;
+}
+
+    #blog-markdown-toc li {
+        display: block;
+    }
+
+        #blog-markdown-toc li a {
+            display: block;
+            padding: 0.125rem;
+            color: #77757a;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+    #blog-markdown-toc a:hover {
+        color: #0366d6;
+    }
