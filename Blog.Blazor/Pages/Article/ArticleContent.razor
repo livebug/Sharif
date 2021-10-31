@@ -31,7 +31,7 @@ else
         if (firstRender)
         {
             module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/script.js");
-            await module.InvokeVoidAsync("myfunction");
+            await module.InvokeVoidAsync("generateTOC","blog-markdown-body","blog-markdown-toc");
         }
     }
 
