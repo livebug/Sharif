@@ -1,5 +1,5 @@
 ﻿@media (min-width: 992px) {
-    #blog-markdown-toc {
+    #blog-markdown-siderbar {
         position: -webkit-sticky;
         position: sticky;
         top: 5rem;
@@ -10,3 +10,6 @@
     }
 }
 
+.list-group-item {
+    padding-left:0px;
+}

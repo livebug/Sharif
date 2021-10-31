@@ -1,0 +1,34 @@
+﻿@implements IAsyncDisposable
+@inject IJSRuntime JS
+
+<div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="@(theme=="light"?false:true)" @onchange=Switch>
+    <label class="custom-control-label" for="customSwitch1">@(theme)</label>
+</div>
+@code {
+    private string theme { get; set; }
+    private IJSObjectReference module;
+
+    private async Task Switch()
+    {
+        await module.InvokeVoidAsync("switchTheme", "blog-markdown-theme");
+        theme = await GetMarkdownTheme();
+        Console.WriteLine("Switch " + theme);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/script.js");
+        theme = await GetMarkdownTheme();
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if (module is not null)
+        {
+            await module.DisposeAsync();
+        }
+    }
+
+    private async Task<string> GetMarkdownTheme() => await module.InvokeAsync<string>("getMarkdownTheme", "blog-markdown-theme");
+}

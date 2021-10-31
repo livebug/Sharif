@@ -1,4 +1,5 @@
 ﻿@using Markdig
+@using Blog.Blazor.Components
 @implements IAsyncDisposable
 @inject IJSRuntime JS
 <a href="/articles/">返回文章列表</a>
@@ -10,11 +11,21 @@
 else
 {
     <div class="row">
-        <div id="blog-markdown-body" class="markdown-body col-md-9">
+        <div id="blog-markdown-body" class="markdown-body dark col-md-9">
             @convertedMarkdown
         </div>
-        <ul id="blog-markdown-toc" class="col-md-3">
-        </ul>
+        <div id="blog-markdown-siderbar" class="col-md-3">
+            <ul id="blog-markdown-toc">
+            </ul>
+            <div class="card">
+                <div class="card-header">
+                    功能板
+                </div>
+                <div class="card-body">
+                    <MarkdownThemeSwitchComponent></MarkdownThemeSwitchComponent>
+                </div>
+            </div>
+        </div>
     </div>
 
 }
@@ -30,8 +41,10 @@ else
     {
         if (firstRender)
         {
+            //在第一次呈现组件实例时设置为 true。
+            //可用于确保初始化操作仅执行一次。
             module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/script.js");
-            await module.InvokeVoidAsync("generateTOC","blog-markdown-body","blog-markdown-toc");
+            await module.InvokeVoidAsync("generateTOC", "blog-markdown-body", "blog-markdown-toc");
         }
     }
 

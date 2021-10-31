@@ -76,22 +76,24 @@ padding 影响锚点元素的定位，margin 不影响锚点元素的定位。�
 /*
     markdown Toc 样式，悬停变色，鼠标样式
 */
-#blog-markdown-toc {
-    border-left: 1px solid #eee;
-    font-size: 0.5em;
+
+#blog-markdown-siderbar li {
+    display: block;
 }
 
-    #blog-markdown-toc li {
-        display: block;
-    }
+#blog-markdown-toc {
+    font-size: 0.5em;
+    padding-left: 1.25rem;
+    border-left: 1px solid #eee;
+}
 
-        #blog-markdown-toc li a {
-            display: block;
-            padding: 0.125rem;
-            color: #77757a;
-            cursor: pointer;
-            text-decoration: none;
-        }
+    #blog-markdown-toc li a {
+        display: block;
+        padding: 0.125rem;
+        color: #77757a;
+        cursor: pointer;
+        text-decoration: none;
+    }
 
     #blog-markdown-toc a:hover {
         color: #0366d6;
