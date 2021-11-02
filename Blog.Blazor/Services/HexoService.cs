@@ -91,6 +91,11 @@ namespace Blog.Blazor.Services
             }
             return res;
         }
+
+        public IEnumerable<Category> GetAllTags()
+        {
+            return _hexoContent.Tag;
+        }
     }
 
     public class TagTreeItem

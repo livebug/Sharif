@@ -68,8 +68,8 @@ a, .btn-link {
 padding 影响锚点元素的定位，margin 不影响锚点元素的定位。所以使用 padding 调整锚点元素跳转后的位置，再使用 margin 抵消 padding 对布局的影响。
 */
 .markdown-body h1, h2, h3, h4, h5, h6 {
-    padding-top: 60px !important;
-    margin-top: -60px !important;
+    padding-top: 3.5rem !important;
+    margin-top: -3.5rem !important;
 }
 
 
@@ -82,7 +82,6 @@ padding 影响锚点元素的定位，margin 不影响锚点元素的定位。�
 }
 
 #blog-markdown-toc {
-    font-size: 0.5em;
     padding-left: 1.25rem;
     border-left: 1px solid #eee;
 }

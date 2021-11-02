@@ -33,7 +33,7 @@ export function switchTheme(themeId) {
 export function getMarkdownTheme(themeId) {
     let style = document.getElementById(themeId);
     let theme = localStorage.getItem(themeId);
-    console.log('js ' + theme);
+    //console.log('js ' + theme);
     if (theme == "light") {
         style.href = light;
         return "light";
@@ -44,7 +44,7 @@ export function getMarkdownTheme(themeId) {
     }
     else {
         localStorage.setItem(themeId, "light");
-        style.href = dark;
+        style.href = light;
         return "light";
     }
 }

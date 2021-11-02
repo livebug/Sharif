@@ -1,6 +1,6 @@
 ﻿@*<span class="badge badge-info" style="margin-right:2px;" >@ChildContent</span>*@
 
-<a href="/tags/@Href" class="badge badge-info" style="margin-right:2px;">@ChildContent</a>
+<a href="/tags/@Href" class="badge badge-info" style="margin-right:2px;font-size: @(0.1*Size+0.5)rem;">@ChildContent</a>
 
 
 @code {
@@ -8,4 +8,6 @@
     public string Href { get; set; }
     [Parameter]
     public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public int Size { get; set; } = 0;
 }
