@@ -363,6 +363,7 @@ MigrationBackup/
 FodyWeavers.xsd
 Blog.Blazor/.vscode/launch.json
 Blog.Blazor/.vscode/tasks.json
-
+Blog.B4Temp/bootstrap-5.1.3-examples
+Blog.B4Temp/node_modules
 .metals/
 .vscode/
