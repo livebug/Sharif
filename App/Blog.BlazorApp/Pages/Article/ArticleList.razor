@@ -1,0 +1,39 @@
+﻿@*<h3>ArticleList</h3>*@
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title     </th>
+            <th>Tags      </th>
+            <th class="updatetime-col">Updatedtime  </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var post in posts)
+        {
+            <tr>
+                <td><a href="/articles/@(post.Id)">@(post.Title)</a>      </td>
+                <td>
+                    @foreach (var tag in post.Tags)
+                        {
+                        <Tag Href=@(tag.Id) >@(tag.Name)</Tag>
+                    }
+                </td>
+                <td class="updatetime-col">@(post.Updated)   </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@inject HexoService hexo
+@inject ILogger<ArticleList> logger
+@code {
+    public IList<Post> posts;
+
+    protected override void OnParametersSet()
+    {
+        posts = hexo.GetAllPosts().Where(e=>!string.IsNullOrWhiteSpace(e.Title)).ToList();
+        logger.LogInformation(posts.Count.ToString());
+    }
+}

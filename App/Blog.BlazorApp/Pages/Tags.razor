@@ -1,0 +1,89 @@
+﻿@page "/tags/{Id?}"
+<h1 class="page-title">标签树</h1>
+
+<div class="tag-accordion-card">
+    tag-card
+    <CollapseItems Items=TagPostsDict TItem="Category" TItem1="IEnumerable<Post>">
+        <CardHeader Context="tag">
+            <div class="mb-0">
+                @tag.Name
+            </div>
+        </CardHeader>
+        <CardBody Context="posts">
+            <ul class="list-group list-group-flush">
+                @foreach (var post in posts)
+                {
+                    <li class="list-group-item" style="padding:2px 1px;">
+                        <a href="/articles/@(post.Id)">@(post.Title)</a>
+                    </li>
+                }
+            </ul>
+        </CardBody>
+    </CollapseItems>
+</div>
+
+
+
+<div class="tag-list-tab row">
+    <div class="col-3">
+        <div class="list-group list-group-flush" id="list-tab" role="tablist">
+            @foreach (var Treeitem in TagTree)
+            {
+                <a class="list-group-item list-group-item-action" style="padding:1px 5px;font-size:medium;" @onclick=@(e=>OnClick1(Treeitem))>
+                    @(Treeitem.Tag.Name)
+                    <span class="badge bg-primary bg-pill">@(Treeitem.Posts.Count())</span>
+                </a>
+            }
+        </div>
+    </div>
+    <div class="col-9">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="list-group ">
+                @foreach (var post in ChoosedTagTreeItem.Posts)
+                {
+                    <a class="list-group-item" href="/articles/@(post.Id)">@(post.Title)</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@inject HexoService hexo
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    public IReadOnlyDictionary<Category, IEnumerable<Post>> TagPostsDict { get; set; }
+    public List<TagTreeItem> TagTree { get; set; }
+    public TagTreeItem ChoosedTagTreeItem { get; set; }
+
+
+    protected override void OnInitialized()
+    {
+        TagTree = hexo.GetTagTree().OrderByDescending(a => a.Posts.Count()).ToList();
+        ChoosedTagTreeItem = TagTree[0];
+
+        TagPostsDict = hexo.GetTagPostsDict().OrderByDescending(e=>e.Value.Count()).ToDictionary(a=>a.Key,b=>b.Value);
+    }
+
+
+    public void OnClick1(TagTreeItem item)
+    {
+        ChoosedTagTreeItem = item;
+    }
+
+
+    protected override Task OnParametersSetAsync()
+    {
+        if (Id is not null && !string.IsNullOrWhiteSpace(Id) && TagTree.Exists(e => e.Tag.Id == Id))
+        {
+            ChoosedTagTreeItem = TagTree.Find(e => e.Tag.Id == Id);
+        }
+        else
+        {
+            ChoosedTagTreeItem = TagTree[0];
+        }
+        return base.OnParametersSetAsync();
+    }
+}

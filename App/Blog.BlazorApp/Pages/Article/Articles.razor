@@ -1,0 +1,38 @@
+﻿@page "/articles/{Id?}" 
+<h1 class="page-title">文章</h1> 
+
+@if (HasID && post is not null)
+{
+    <ArticleContent post=post></ArticleContent>
+}
+else
+{
+    <ArticleList></ArticleList>
+}
+
+@inject HexoService hexo
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    public bool HasID = true;
+
+    public Post post { get; set; }
+
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+         if (parameters.TryGetValue<string>(nameof(Id), out var value))
+        {
+            if (value is null || string.IsNullOrWhiteSpace(value))
+            {
+                HasID = false;
+            }
+            else
+            {
+                HasID = true;
+                post = hexo.GetAllPosts().First(e => e.Id == value);
+            }
+        } 
+        return base.SetParametersAsync(parameters);
+    }
+}

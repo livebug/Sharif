@@ -1,0 +1,43 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <div class="main">
+        <div class="top-row px-4">
+            @foreach (var item in topRowMenu)
+            {
+                if (item.SubMenu is null)
+                {
+                    <a href="@(item.ItemHref)" target="@(item.ItemHref.Contains("http")?"_blank":"")" class="ml-md-2">
+                        @*<span class="@(item.ItemIcon.GetIconClass().ToLowerInvariant())" aria-hidden="true"></span>*@
+                        @(item.ItemName)
+                    </a> 
+                }
+            }
+        </div>
+
+        <div class="content px-4">
+            @Body
+        </div>
+    </div>
+</div>
+
+@code {
+    public class TopRowItem
+    {
+        public string ItemName { get; set; }
+        public string ItemHref { get; set; }
+        public OpenIconc ItemIcon { get; set; } = OpenIconc.Info;
+        public IList<TopRowItem> SubMenu { get; set; }
+    }
+
+    public IList<TopRowItem> topRowMenu = new List<TopRowItem>(2);
+    protected override void OnInitialized()
+    {
+        topRowMenu.Add(new TopRowItem { ItemHref = "http://blazor.net", ItemName = "About" });
+        topRowMenu.Add(new TopRowItem { ItemHref = "/timeline", ItemName = "Flag", ItemIcon = OpenIconc.Flag });
+    }
+}
