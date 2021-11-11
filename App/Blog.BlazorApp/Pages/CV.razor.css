@@ -1,0 +1,23 @@
+﻿.side-title {
+    font-size: 1.5rem;
+    background-color: #518CC8;
+}
+
+.side {
+    background-color: #F4F2F7;
+    padding: 2rem 0 2rem 0;
+}
+
+.side-t {
+    position:relative;
+    display:flex;
+}
+
+.kk {
+    position: absolute;
+    width: 1rem;
+    height: 100%;
+    outline: 1px dashed black;
+    display: flex;
+    justify-content: center;
+}
