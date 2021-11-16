@@ -522,6 +522,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitStatements(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStatements(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -629,6 +635,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitStatementSeparator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStatementSeparator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -671,6 +683,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitEmpty(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEmpty(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -717,6 +735,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -820,6 +844,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitExplainStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExplainStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -953,6 +983,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitExplainOption(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExplainOption(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1074,6 +1110,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitVectorizationOnly(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVectorizationOnly(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1117,6 +1159,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitVectorizatonDetail(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVectorizatonDetail(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1201,6 +1249,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitExecStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExecStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1339,6 +1393,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitLoadStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLoadStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1428,6 +1488,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitReplicationClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReplicationClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1496,6 +1562,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitExportStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExportStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1567,6 +1639,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitImportStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitImportStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1666,6 +1744,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitReplDumpStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReplDumpStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1787,6 +1871,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitReplLoadStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReplLoadStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1873,6 +1963,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitReplConfigs(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReplConfigs(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1926,6 +2022,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitReplConfigsList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReplConfigsList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1996,6 +2098,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitReplStatusStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReplStatusStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2185,6 +2293,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDdlStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDdlStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2507,6 +2621,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitIfExists(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIfExists(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2550,6 +2670,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRestrictOrCascade(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRestrictOrCascade(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2602,6 +2728,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitIfNotExists(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIfNotExists(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2648,6 +2780,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRewriteEnabled(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRewriteEnabled(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2691,6 +2829,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRewriteDisabled(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRewriteDisabled(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2737,6 +2881,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitStoredAsDirs(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStoredAsDirs(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2782,6 +2932,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitOrReplace(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitOrReplace(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2844,6 +3000,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCreateDatabaseStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCreateDatabaseStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -2943,6 +3105,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDbLocation(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDbLocation(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -2989,6 +3157,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDbProperties(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDbProperties(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3043,6 +3217,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDbPropertiesList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDbPropertiesList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3105,6 +3285,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSwitchDatabaseStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSwitchDatabaseStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3158,6 +3344,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDropDatabaseStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDropDatabaseStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3232,6 +3424,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDatabaseComment(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDatabaseComment(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3321,6 +3519,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCreateTableStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCreateTableStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3582,6 +3786,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTruncateTableStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTruncateTableStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -3654,6 +3864,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDropTableStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDropTableStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3755,6 +3971,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -3920,6 +4142,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterTableStatementSuffix(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterTableStatementSuffix(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4108,6 +4336,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterTblPartitionStatementSuffix(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterTblPartitionStatementSuffix(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4245,6 +4479,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementPartitionKeyType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementPartitionKeyType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4307,6 +4547,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterViewStatementSuffix(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterViewStatementSuffix(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4395,6 +4641,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterMaterializedViewStatementSuffix(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterMaterializedViewStatementSuffix(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4459,6 +4711,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterDatabaseStatementSuffix(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterDatabaseStatementSuffix(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4528,6 +4786,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterDatabaseSuffixProperties(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterDatabaseSuffixProperties(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4582,6 +4846,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterDatabaseSuffixSetOwner(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterDatabaseSuffixSetOwner(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4634,6 +4904,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterDatabaseSuffixSetLocation(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterDatabaseSuffixSetLocation(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4684,6 +4960,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixRename(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixRename(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4739,6 +5021,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixAddCol(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixAddCol(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4813,6 +5101,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixAddConstraint(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixAddConstraint(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -4873,6 +5167,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixDropConstraint(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixDropConstraint(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -4939,6 +5239,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixRenameCol(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixRenameCol(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5052,6 +5358,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixUpdateStatsCol(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixUpdateStatsCol(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5131,6 +5443,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixUpdateStats(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixUpdateStats(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5182,6 +5500,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementChangeColPosition(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementChangeColPosition(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5249,6 +5573,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixAddPartitions(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixAddPartitions(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5321,6 +5651,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixAddPartitionsElement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixAddPartitionsElement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5378,6 +5714,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixTouch(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixTouch(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5441,6 +5783,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixArchive(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixArchive(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5503,6 +5851,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixUnArchive(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixUnArchive(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5559,6 +5913,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPartitionLocation(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPartitionLocation(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5619,6 +5979,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixDropPartitions(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixDropPartitions(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -5718,6 +6084,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixProperties(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixProperties(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5801,6 +6173,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterViewSuffixProperties(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterViewSuffixProperties(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5881,6 +6259,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterMaterializedViewSuffixRewrite(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterMaterializedViewSuffixRewrite(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5938,6 +6322,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterMaterializedViewSuffixRebuild(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterMaterializedViewSuffixRebuild(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -5985,6 +6375,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixSerdeProperties(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixSerdeProperties(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6073,6 +6469,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterIndexStatementSuffix(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterIndexStatementSuffix(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6135,6 +6537,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixFileFormat(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixFileFormat(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6184,6 +6592,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixClusterbySortby(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixClusterbySortby(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6255,6 +6669,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterTblPartitionStatementSuffixSkewedLocation(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterTblPartitionStatementSuffixSkewedLocation(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6305,6 +6725,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSkewedLocations(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSkewedLocations(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6359,6 +6785,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSkewedLocationsList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSkewedLocationsList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6422,6 +6854,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSkewedLocationMap(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSkewedLocationMap(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6468,6 +6906,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixLocation(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixLocation(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6520,6 +6964,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixSkewedby(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixSkewedby(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6594,6 +7044,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixExchangePartition(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixExchangePartition(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6646,6 +7102,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixRenamePart(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixRenamePart(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6703,6 +7165,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixStatsPart(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixStatsPart(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6778,6 +7246,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixMergeFiles(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixMergeFiles(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -6820,6 +7294,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixBucketNum(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixBucketNum(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -6914,6 +7394,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCreateIndexStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCreateIndexStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7088,6 +7574,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitLocationPath(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLocationPath(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7154,6 +7646,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDropIndexStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDropIndexStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7208,6 +7706,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTablePartitionPrefix(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTablePartitionPrefix(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7261,6 +7765,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitBlocking(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBlocking(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7313,6 +7823,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixCompact(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixCompact(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7388,6 +7904,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterStatementSuffixSetOwner(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterStatementSuffixSetOwner(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7443,6 +7965,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitFileFormat(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFileFormat(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7530,6 +8058,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitInputFileFormat(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInputFileFormat(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7597,6 +8131,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTabTypeExpr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTabTypeExpr(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7709,6 +8249,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPartTypeExpr(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPartTypeExpr(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -7768,6 +8314,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTabPartColTypeExpr(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTabPartColTypeExpr(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7845,6 +8397,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDescStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDescStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -7978,6 +8536,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAnalyzeStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAnalyzeStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -8133,6 +8697,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitShowStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitShowStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9678,6 +10248,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitLockStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLockStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -9744,6 +10320,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitLockDatabase(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLockDatabase(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -9800,6 +10382,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitLockMode(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLockMode(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -9855,6 +10443,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitUnlockStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUnlockStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -9917,6 +10511,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitUnlockDatabase(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUnlockDatabase(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -9974,6 +10574,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCreateRoleStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCreateRoleStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10022,6 +10628,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDropRoleStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDropRoleStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10080,6 +10692,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitGrantPrivileges(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGrantPrivileges(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10161,6 +10779,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRevokePrivileges(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRevokePrivileges(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10247,6 +10871,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitGrantRole(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGrantRole(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10350,6 +10980,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRevokeRole(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRevokeRole(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10439,6 +11075,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitShowRoleGrants(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitShowRoleGrants(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10487,6 +11129,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitShowRoles(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitShowRoles(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10531,6 +11179,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitShowCurrentRole(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitShowCurrentRole(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10582,6 +11236,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSetRole(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSetRole(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -10851,6 +11511,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitShowGrants(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitShowGrants(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10921,6 +11587,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitShowRolePrincipals(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitShowRolePrincipals(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -10968,6 +11640,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrivilegeIncludeColObject(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrivilegeIncludeColObject(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11223,6 +11901,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrivilegeObject(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrivilegeObject(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -11279,6 +11963,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrivObject(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrivObject(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11400,6 +12090,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrivObjectCols(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrivObjectCols(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11526,6 +12222,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrivilegeList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrivilegeList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -11590,6 +12292,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrivlegeDef(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrivlegeDef(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11656,6 +12364,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrivilegeType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrivilegeType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -11713,6 +12427,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrincipalSpecification(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrincipalSpecification(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11779,6 +12499,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrincipalName(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrincipalName(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11851,6 +12577,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWithGrantOption(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWithGrantOption(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -11897,6 +12629,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitGrantOptionFor(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGrantOptionFor(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -11945,6 +12683,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAdminOptionFor(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAdminOptionFor(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -11991,6 +12735,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWithAdminOption(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWithAdminOption(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12048,6 +12798,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitMetastoreCheck(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMetastoreCheck(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12158,6 +12914,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitResourceList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitResourceList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12219,6 +12981,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitResource(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitResource(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12263,6 +13031,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitResourceType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitResourceType(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12323,6 +13097,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCreateFunctionStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCreateFunctionStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12404,6 +13184,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDropFunctionStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDropFunctionStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12471,6 +13257,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitReloadFunctionStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReloadFunctionStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12524,6 +13316,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCreateMacroStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCreateMacroStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12594,6 +13392,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDropMacroStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDropMacroStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12680,6 +13484,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCreateViewStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCreateViewStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -12825,6 +13635,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCreateMaterializedViewStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCreateMaterializedViewStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -12953,6 +13769,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitViewPartition(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitViewPartition(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13008,6 +13830,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDropViewStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDropViewStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -13073,6 +13901,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDropMaterializedViewStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDropMaterializedViewStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13133,6 +13967,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitShowFunctionIdentifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitShowFunctionIdentifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -13386,6 +14226,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitShowStmtIdentifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitShowStmtIdentifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13636,6 +14482,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableComment(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableComment(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13691,6 +14543,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTablePartition(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTablePartition(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -13779,6 +14637,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableBuckets(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableBuckets(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -13873,6 +14737,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableSkewed(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableSkewed(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -13945,6 +14815,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRowFormat(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRowFormat(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -14000,6 +14876,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRecordReader(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRecordReader(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -14043,6 +14925,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRecordWriter(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRecordWriter(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14094,6 +14982,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRowFormatSerde(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRowFormatSerde(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14173,6 +15067,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRowFormatDelimited(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRowFormatDelimited(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14275,6 +15175,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableRowFormat(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableRowFormat(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -14332,6 +15238,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTablePropertiesPrefixed(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTablePropertiesPrefixed(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -14378,6 +15290,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableProperties(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableProperties(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14438,6 +15356,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTablePropertiesList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTablePropertiesList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14530,6 +15454,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitKeyValueProperty(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitKeyValueProperty(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -14574,6 +15504,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitKeyProperty(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitKeyProperty(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14625,6 +15561,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableRowFormatFieldIdentifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableRowFormatFieldIdentifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14692,6 +15634,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableRowFormatCollItemsIdentifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableRowFormatCollItemsIdentifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -14745,6 +15693,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableRowFormatMapKeysIdentifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableRowFormatMapKeysIdentifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -14797,6 +15751,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableRowFormatLinesIdentifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableRowFormatLinesIdentifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -14846,6 +15806,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableRowNullFormat(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableRowNullFormat(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -14911,6 +15877,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableFileFormat(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableFileFormat(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -15023,6 +15995,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableLocation(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableLocation(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -15074,6 +16052,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnNameTypeList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnNameTypeList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -15144,6 +16128,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnNameTypeOrConstraintList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnNameTypeOrConstraintList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -15210,6 +16200,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnNameColonTypeList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnNameColonTypeList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -15278,6 +16274,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnNameList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnNameList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -15337,6 +16339,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnName(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnName(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -15399,6 +16407,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitExtColumnName(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExtColumnName(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -15493,6 +16507,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnNameOrderList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnNameOrderList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -15555,6 +16575,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnParenthesesList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnParenthesesList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -15607,6 +16633,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitEnableValidateSpecification(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnableValidateSpecification(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -15678,6 +16710,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitEnableSpecification(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnableSpecification(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -15728,6 +16766,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitValidateSpecification(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitValidateSpecification(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -15777,6 +16821,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitEnforcedSpecification(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitEnforcedSpecification(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -15836,6 +16886,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRelySpecification(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRelySpecification(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -15919,6 +16975,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCreateConstraint(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCreateConstraint(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -15992,6 +17054,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterConstraintWithName(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterConstraintWithName(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -16054,6 +17122,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPkConstraint(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPkConstraint(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -16114,6 +17188,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCreateForeignKey(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCreateForeignKey(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -16207,6 +17287,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterForeignKeyWithName(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterForeignKeyWithName(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -16277,6 +17363,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSkewedValueElement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSkewedValueElement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -16355,6 +17447,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSkewedColumnValuePairList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSkewedColumnValuePairList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -16417,6 +17515,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSkewedColumnValuePair(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSkewedColumnValuePair(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -16470,6 +17574,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSkewedColumnValues(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSkewedColumnValues(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -16531,6 +17641,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSkewedColumnValue(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSkewedColumnValue(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -16576,6 +17692,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSkewedValueLocationElement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSkewedValueLocationElement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -16646,6 +17768,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitOrderSpecification(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitOrderSpecification(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -16696,6 +17824,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitNullOrdering(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNullOrdering(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -16762,6 +17896,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnNameOrder(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnNameOrder(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -16834,6 +17974,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnNameCommentList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnNameCommentList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -16896,6 +18042,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnNameComment(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnNameComment(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -16957,6 +18109,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnRefOrder(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnRefOrder(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -17027,6 +18185,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnNameType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnNameType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -17087,6 +18251,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnNameTypeOrConstraint(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnNameTypeOrConstraint(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -17348,6 +18518,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableConstraint(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableConstraint(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -17415,6 +18591,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnNameTypeConstraint(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnNameTypeConstraint(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -17486,6 +18668,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnConstraint(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnConstraint(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -17559,6 +18747,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitForeignKeyConstraint(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitForeignKeyConstraint(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -17641,6 +18835,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColConstraint(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColConstraint(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -17709,6 +18909,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterColumnConstraint(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterColumnConstraint(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -17782,6 +18988,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterForeignKeyConstraint(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterForeignKeyConstraint(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -17864,6 +19076,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAlterColConstraint(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAlterColConstraint(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -17929,6 +19147,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableConstraintPrimaryKey(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableConstraintPrimaryKey(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -17977,6 +19201,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitConstraintOptsCreate(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConstraintOptsCreate(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -18024,6 +19254,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitConstraintOptsAlter(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConstraintOptsAlter(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -18075,6 +19311,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnNameColonType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnNameColonType(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -18136,6 +19378,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -18185,6 +19433,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColTypeList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColTypeList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -18257,6 +19511,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitType_db_col(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitType_db_col(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -18376,6 +19636,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrimitiveType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrimitiveType(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -18598,6 +19864,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitListType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitListType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -18649,6 +19921,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitStructType(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStructType(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -18706,6 +19984,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitMapType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMapType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -18762,6 +20046,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitUnionType(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUnionType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -18813,6 +20103,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSetOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSetOperator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -18964,6 +20260,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitQueryStatementExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitQueryStatementExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -19020,6 +20322,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitQueryStatementExpressionBody(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitQueryStatementExpressionBody(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -19091,6 +20399,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWithClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWithClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -19159,6 +20473,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCteStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCteStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -19218,6 +20538,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitFromStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFromStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -19287,6 +20613,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSingleFromStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSingleFromStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -19350,6 +20682,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRegularBody(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRegularBody(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -19452,6 +20790,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAtomSelectStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAtomSelectStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -19586,6 +20930,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSelectStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSelectStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -19699,6 +21049,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSetOpSelectStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSetOpSelectStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -19759,6 +21115,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSelectStatementWithCTE(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSelectStatementWithCTE(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -19846,6 +21208,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitBody(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBody(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -20125,6 +21493,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitInsertClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitInsertClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -20234,6 +21608,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDestination(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDestination(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -20332,6 +21712,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitLimitClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLimitClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -20415,6 +21801,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDeleteStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDeleteStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -20477,6 +21869,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnAssignmentClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnAssignmentClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -20531,6 +21929,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSetColumnsClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSetColumnsClause(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -20601,6 +22005,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitUpdateStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUpdateStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -20667,6 +22077,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSqlTransactionStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSqlTransactionStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -20749,6 +22165,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitStartTransactionStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStartTransactionStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -20824,6 +22246,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTransactionMode(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTransactionMode(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -20881,6 +22309,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTransactionAccessMode(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTransactionAccessMode(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -20944,6 +22378,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitIsolationLevel(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIsolationLevel(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -20989,6 +22429,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitLevelOfIsolation(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLevelOfIsolation(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -21030,6 +22476,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCommitStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCommitStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -21083,6 +22535,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRollbackStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRollbackStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -21140,6 +22598,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSetAutoCommitStatement(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSetAutoCommitStatement(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -21189,6 +22653,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAbortTransactionStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAbortTransactionStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -21266,6 +22736,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitMergeStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMergeStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -21356,6 +22832,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWhenClauses(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWhenClauses(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -21448,6 +22930,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWhenNotMatchedClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWhenNotMatchedClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -21523,6 +23011,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWhenMatchedAndClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWhenMatchedAndClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -21579,6 +23073,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWhenMatchedThenClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWhenMatchedThenClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -21629,6 +23129,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitUpdateOrDelete(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUpdateOrDelete(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -21692,6 +23198,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitKillQueryStatement(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitKillQueryStatement(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -21763,6 +23275,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSelectClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSelectClause(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -22113,6 +23631,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSelectList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSelectList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -22203,6 +23727,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSelectTrfmClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSelectTrfmClause(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -22567,6 +24097,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSelectItem(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSelectItem(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -22702,6 +24238,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTrfmClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTrfmClause(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -23069,6 +24611,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSelectExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSelectExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -23131,6 +24679,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSelectExpressionList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSelectExpressionList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -23200,6 +24754,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWindow_clause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWindow_clause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -23266,6 +24826,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWindow_defn(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWindow_defn(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -23320,6 +24886,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWindow_specification(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWindow_specification(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -23611,6 +25183,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWindow_frame(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWindow_frame(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -23677,6 +25255,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWindow_range_expression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWindow_range_expression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -23753,6 +25337,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWindow_value_expression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWindow_value_expression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -23820,6 +25410,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWindow_frame_start_boundary(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWindow_frame_start_boundary(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -23894,6 +25490,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWindow_frame_boundary(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWindow_frame_boundary(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -23982,6 +25584,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableAllColumns(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableAllColumns(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -24238,6 +25846,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableOrColumn(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableOrColumn(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -24287,6 +25901,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitExpressionList(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpressionList(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -24355,6 +25975,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAliasList(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAliasList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -24418,6 +26044,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitFromClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFromClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -24475,6 +26107,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitFromSource(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFromSource(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -24768,6 +26406,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAtomjoinSource(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAtomjoinSource(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -24946,6 +26590,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitJoinSource(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitJoinSource(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -25070,6 +26720,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitJoinSourcePart(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitJoinSourcePart(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -25160,6 +26816,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitUniqueJoinSource(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUniqueJoinSource(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -25218,6 +26880,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitUniqueJoinExpr(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUniqueJoinExpr(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -25262,6 +26930,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitUniqueJoinToken(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUniqueJoinToken(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -25311,6 +26985,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitJoinToken(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitJoinToken(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -25483,6 +27163,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitLateralView(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLateralView(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -25693,6 +27379,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableAlias(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableAlias(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -25753,6 +27445,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableBucketSample(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableBucketSample(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -25844,6 +27542,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSplitSample(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSplitSample(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -25925,6 +27629,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableSample(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableSample(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -25990,6 +27700,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableSource(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableSource(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -26082,6 +27798,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitUniqueJoinTableSource(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUniqueJoinTableSource(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -26160,6 +27882,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableName(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableName(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -26224,6 +27952,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitViewName(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitViewName(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -26284,6 +28018,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSubQuerySource(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSubQuerySource(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -26356,6 +28096,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPartitioningSpec(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPartitioningSpec(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -26463,6 +28209,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPartitionTableFunctionSource(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPartitionTableFunctionSource(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -26557,6 +28309,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPartitionedTableFunction(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPartitionedTableFunction(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -26669,6 +28427,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWhereClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWhereClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -26714,6 +28478,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSearchCondition(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSearchCondition(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -26757,6 +28527,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitValuesClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitValuesClause(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -26809,6 +28585,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitValuesTableConstructor(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitValuesTableConstructor(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -26869,6 +28651,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitValueRowConstructor(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitValueRowConstructor(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -26935,6 +28723,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitVirtualTableSource(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVirtualTableSource(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -27030,6 +28824,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitGroupByClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGroupByClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -27082,6 +28882,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitGroupby_expression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGroupby_expression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -27145,6 +28951,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitGroupByEmpty(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGroupByEmpty(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -27200,6 +29012,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRollupStandard(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRollupStandard(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -27290,6 +29108,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitRollupOldSyntax(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitRollupOldSyntax(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -27392,6 +29216,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitGroupingSetExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGroupingSetExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -27456,6 +29286,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitGroupingSetExpressionMultiple(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGroupingSetExpressionMultiple(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -27529,6 +29365,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitGroupingExpressionSingle(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitGroupingExpressionSingle(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -27572,6 +29414,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitHavingClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitHavingClause(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -27618,6 +29466,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitHavingCondition(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitHavingCondition(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -27662,6 +29516,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitExpressionsInParenthesis(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpressionsInParenthesis(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -27712,6 +29572,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitExpressionsNotInParenthesis(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpressionsNotInParenthesis(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -27774,6 +29640,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitExpressionPart(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpressionPart(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -27834,6 +29706,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitExpressions(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpressions(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -27899,6 +29777,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnRefOrderInParenthesis(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnRefOrderInParenthesis(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -27971,6 +29855,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitColumnRefOrderNotInParenthesis(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitColumnRefOrderNotInParenthesis(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -28040,6 +29930,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitOrderByClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitOrderByClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -28106,6 +30002,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitClusterByClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClusterByClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -28155,6 +30057,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPartitionByClause(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPartitionByClause(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -28203,6 +30111,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDistributeByClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDistributeByClause(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -28255,6 +30169,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSortByClause(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSortByClause(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -28335,6 +30255,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitFunction(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunction(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -28455,6 +30381,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitFunctionName(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionName(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -28728,6 +30660,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCastExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCastExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -28794,6 +30732,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCaseExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCaseExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -28889,6 +30833,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitWhenExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitWhenExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -28974,6 +30924,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitFloorExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFloorExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -29041,6 +30997,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitFloorDateQualifiers(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFloorDateQualifiers(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -29098,6 +31060,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitExtractExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExtractExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -29157,6 +31125,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTimeQualifiers(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTimeQualifiers(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -29231,6 +31205,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitConstant(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitConstant(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -29359,6 +31339,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitStringLiteralSequence(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStringLiteralSequence(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -29422,6 +31408,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitCharSetStringLiteral(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCharSetStringLiteral(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -29466,6 +31458,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDateLiteral(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDateLiteral(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -29527,6 +31525,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTimestampLiteral(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTimestampLiteral(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -29586,6 +31590,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTimestampLocalTZLiteral(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTimestampLocalTZLiteral(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -29629,6 +31639,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitIntervalValue(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIntervalValue(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -29684,6 +31700,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitIntervalLiteral(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIntervalLiteral(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -29737,6 +31759,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitIntervalExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIntervalExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -29822,6 +31850,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitIntervalQualifiers(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIntervalQualifiers(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -29959,6 +31993,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitAtomExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAtomExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -30078,6 +32118,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceUnaryOperator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceUnaryOperator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -30129,6 +32175,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitIsCondition(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIsCondition(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -30218,6 +32270,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceBitwiseXorOperator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceBitwiseXorOperator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -30261,6 +32319,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceStarOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceStarOperator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -30312,6 +32376,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedencePlusOperator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedencePlusOperator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -30361,6 +32431,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceConcatenateOperator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceConcatenateOperator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -30402,6 +32478,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceAmpersandOperator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceAmpersandOperator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -30442,6 +32524,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceBitwiseOrOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceBitwiseOrOperator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -30485,6 +32573,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceRegexpOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceRegexpOperator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -30540,6 +32634,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceSimilarOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceSimilarOperator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -30622,6 +32722,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceDistinctOperator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceDistinctOperator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -30672,6 +32778,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceEqualOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceEqualOperator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -30749,6 +32861,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceNotOperator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceNotOperator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -30790,6 +32908,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceAndOperator(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceAndOperator(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -30830,6 +32954,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceOrOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceOrOperator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -30946,6 +33076,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitExpression(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -31247,6 +33383,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSubQueryExpression(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSubQueryExpression(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -31303,6 +33445,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceSimilarExpressionPart(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceSimilarExpressionPart(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -31385,6 +33533,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceSimilarExpressionAtom(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceSimilarExpressionAtom(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -31475,6 +33629,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceSimilarExpressionIn(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceSimilarExpressionIn(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -31537,6 +33697,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrecedenceSimilarExpressionPartNot(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrecedenceSimilarExpressionPartNot(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -31594,6 +33760,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitBooleanValue(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBooleanValue(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -31643,6 +33815,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitBooleanValueTok(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitBooleanValueTok(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -31697,6 +33875,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitTableOrPartition(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTableOrPartition(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -31761,6 +33945,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPartitionSpec(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPartitionSpec(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -31832,6 +34022,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPartitionVal(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPartitionVal(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -31897,6 +34093,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDropPartitionSpec(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDropPartitionSpec(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -31970,6 +34172,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDropPartitionVal(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDropPartitionVal(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -32019,6 +34227,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDropPartitionOperator(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDropPartitionOperator(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -32110,6 +34324,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSysFuncNames(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSysFuncNames(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -32164,6 +34384,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitDescFuncNames(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDescFuncNames(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -32228,6 +34454,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitIdentifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitIdentifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -32483,6 +34715,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitFunctionIdentifier(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitFunctionIdentifier(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -32543,6 +34781,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitPrincipalIdentifier(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPrincipalIdentifier(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -32985,6 +35229,12 @@ public partial class HiveParser : Parser {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitNonReserved(this);
 		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitNonReserved(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -33047,6 +35297,12 @@ public partial class HiveParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			IHiveParserListener typedListener = listener as IHiveParserListener;
 			if (typedListener != null) typedListener.ExitSql11ReservedKeywordsUsedAsFunctionName(this);
+		}
+		[System.Diagnostics.DebuggerNonUserCode]
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			IHiveParserVisitor<TResult> typedVisitor = visitor as IHiveParserVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitSql11ReservedKeywordsUsedAsFunctionName(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
