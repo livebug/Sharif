@@ -368,3 +368,4 @@ Blog.B4Temp/node_modules
 .metals/
 .vscode/
 /Blog.B5Temp/csst.html
+appsettings.json
