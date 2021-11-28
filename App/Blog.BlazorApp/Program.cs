@@ -14,7 +14,7 @@ builder.Services.AddHttpClient("GithubLookApi", client =>
 {
     client.BaseAddress = new Uri("https://api.github.com/");
     client.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
-    client.DefaultRequestHeaders.Add("Authorization", "token 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");
+    client.DefaultRequestHeaders.Add("Authorization", $"token {builder.Configuration["GithubLookApi_Token"]}");
 });
 builder.Services.AddScoped<HexoService>();
 // Config
@@ -23,4 +23,5 @@ var hexoService = host.Services.GetRequiredService<HexoService>();
 await hexoService.InitHexoContentAsync(@"sample-data\hexodb.json");
 
 await host.RunAsync();
+
 
