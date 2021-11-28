@@ -1,12 +1,6 @@
 ﻿using Antlr4.Runtime;
-using Antlr4.Runtime.Tree;
-using Blog.Repo.SQLC;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tests
 {
@@ -24,8 +18,6 @@ namespace Tests
             parser.BuildParseTree = true;
             var tree = parser.statements();
             Console.WriteLine(tree.ToStringTree(parser));
-            TestVisitor visitor = new TestVisitor();
-            visitor.Visit(tree);
             Assert.IsNotNull(tree);
         }
     }

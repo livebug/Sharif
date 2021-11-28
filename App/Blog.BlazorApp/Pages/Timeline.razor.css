@@ -6,12 +6,10 @@
 .container__line {
     /* Border */
     border-right: 2px solid #aaa;
-
     /* Positioned at the left */
     left: 16px;
     position: absolute;
     top: 0px;
-
     /* Take full height */
     height: 100%;
 }
@@ -37,7 +35,6 @@
     /* Rounded border */
     background-color: rgb(170, 170, 170);
     border-radius: 9999px;
-
     /* Size */
     height: 32px;
     width: 32px;
@@ -51,4 +48,56 @@
 .container__desc {
     /* Make it align with the title */
     margin-left: 48px;
+}
+
+/********************************************************************************/
+
+#timeline-div {
+    position: relative;
+    font-family: 'Times New Roman',STSong;
+    font-size: 1.2rem;
+}
+
+#timeline-line {
+    border-right: 0.2rem solid rgb(170, 170, 170);
+    height: 100%;
+    left: 1.05rem;
+    position: absolute;
+    top: 0;
+}
+
+#timeline-group {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.timeline-item {
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item-header {
+    align-items: center;
+    display: flex;
+    margin-bottom: 4px;
+}
+
+    .timeline-item-header .circle {
+        background-color: rgb(170, 170, 170);
+        border-radius: 50%;
+        height: 2.3rem;
+        width: 2.3rem;
+    }
+
+    .timeline-item-header .context {
+        flex: 1 1 0%;
+        margin-left: 1rem;
+    }
+
+.timeline-item-body {
+    margin-left: 3rem;
+    white-space: pre-line;
+    /*background-color: rgb(170, 170, 170);*/
+    /*border-radius: 20px;*/
+    padding-top: 1rem;
 }

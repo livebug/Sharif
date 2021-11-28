@@ -1,33 +1,38 @@
 ﻿@page "/timeline"
-<div class="col-md-9" style="position: relative; ">
-    <div style="border-right: 2px solid rgb(170, 170, 170); height: 100%; left: 31px; position: absolute; top: 0px;">
-    </div>
-    <ul style="list-style-type: none; margin: 0px; padding: 0px;">
-        @for (int i = 0; i <= 10; i++)
+@using System.Text.Json
+@using Models.Github
+<div class="col-md-9" id="timeline-div">
+    <div id="timeline-line"></div>
+    <ul id="timeline-group">
+        @foreach (var item in TimelineNodes)
         {
-            <li style="margin-bottom: 8px;">
-                <div style="align-items: center; display: flex; margin-bottom: 4px;">
-                    <div style="background-color: rgb(170, 170, 170); border-radius: 9999px; height: 32px; width: 32px;">
-                    </div>
-                    <div style="flex: 1 1 0%; margin-left: 16px;">
-                        【这里是标题】
+            <li class="timeline-item">
+                <div class="timeline-item-header">
+                    <div class="circle"></div>
+                    <div class="context">
+                        <strong>@(item.Header)</strong>
                         <div style="width: 80%;">
-                            <div style="background-color: rgba(0, 0, 0, 0.3); border-radius: 0.25rem; height: 8px; width: 100%;">
+                            <div style="background-color: rgba(0, 0, 0, 0.3); border-radius: 0.25rem; height: 0.5rem; width: 100%;">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div style="margin-left: 48px;">
-                    【这里是内容】
-                    <div style="display: flex; flex-wrap: wrap; justify-content: start; width: 100%;">
-                        @for (var j = 0; j < new Random().Next(1, 9) * 20; j++)
+                <div class="timeline-item-body">
+                    <ul>
+                        @foreach (var str in item.Content)
                         {
-
-                            <div style="margin-bottom: 8px; margin-right: 8px; width: @(new Random().Next(1, 8)*10)%;">
-                                <div style="background-color: rgba(0, 0, 0, 0.3); border-radius: 9999px; height: 2px; width: 100%;">
-                                </div>
-                            </div>
+                            <li>@str</li>
                         }
+                    </ul>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: start; width: 100%;">
+                        @*@for (var j = 0; j < new Random().Next(1, 9) * 20; j++)
+                            {
+
+                            <div style="margin-bottom: 0.5rem; margin-right: 0.5rem; width: @(new Random().Next(1, 8)*10)%;">
+                            <div style="background-color: rgba(0, 0, 0, 0.3); border-radius: 9999px; height: 0.2rem; width: 100%;">
+                            </div>
+                            </div>
+                            }*@
                     </div>
                 </div>
             </li>
@@ -35,3 +40,47 @@
 
     </ul>
 </div>
+
+@inject IHttpClientFactory ClientFactory
+@code {
+    private IList<Commit> Commits { get; set; } = new List<Commit>();
+    private IList<TimelineNode> TimelineNodes { get; set; } = new List<TimelineNode>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var client = ClientFactory.CreateClient("GithubLookApi");
+        var res = await client.GetStreamAsync("https://api.github.com/repos/livebug/Sharif/commits");
+        int count = 0;
+        TimelineNodes.Clear();
+        Commits.Clear();
+        using (JsonDocument document = JsonDocument.Parse(res))
+        {
+            JsonElement commits = document.RootElement;
+            count = commits.GetArrayLength();
+            Console.WriteLine(count);
+            foreach (JsonElement group in commits.EnumerateArray())
+            {
+                JsonElement commit = group.GetProperty("commit");
+                var c = commit.Deserialize<Commit>();
+                var datestr = DateTime.Parse(c.author.date).ToShortDateString();
+                if (!TimelineNodes.Any(n => n.Header == datestr))
+                {
+                    TimelineNodes.Add(new TimelineNode
+                        {
+                            Header = datestr,
+                            Content = new List<string>()
+                        });
+                }
+                var node = TimelineNodes.First(n => n.Header == datestr);
+                node.Content.Add($"{c.message}.");
+                //node.Content.Add($"{c.message} by {c.author.name}.");
+            }
+        }
+    }
+
+    internal class TimelineNode
+    {
+        public string Header { get; set; }
+        public List<string> Content { get; set; }
+    }
+}
