@@ -1,6 +1,32 @@
 ﻿@page "/editer"
 <h1>MdEditer</h1>
 
-@code {
+<div id="blog-markdown-editor">
+    <textarea style="display:none;">
+### Editor.md
+**Editor.md**: The open source embeddable online markdown editor, based on CodeMirror & jQuery & Marked.
+    </textarea>
+</div>
 
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+@code {
+    private IJSObjectReference module;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/script.js");
+            await module.InvokeVoidAsync("initToHtmlByEditor","blog-markdown-editor");
+        }
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if (module is not null)
+        {
+            await module.DisposeAsync();
+        }
+    }
 }

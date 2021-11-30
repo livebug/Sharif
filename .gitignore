@@ -369,3 +369,4 @@ Blog.B4Temp/node_modules
 .vscode/
 /Blog.B5Temp/csst.html
 appsettings.json
+/App/Blog.BlazorApp/wwwroot/appsettings.Development.json

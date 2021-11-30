@@ -27,7 +27,6 @@
                     <div style="display: flex; flex-wrap: wrap; justify-content: start; width: 100%;">
                         @*@for (var j = 0; j < new Random().Next(1, 9) * 20; j++)
                             {
-
                             <div style="margin-bottom: 0.5rem; margin-right: 0.5rem; width: @(new Random().Next(1, 8)*10)%;">
                             <div style="background-color: rgba(0, 0, 0, 0.3); border-radius: 9999px; height: 0.2rem; width: 100%;">
                             </div>
@@ -43,25 +42,30 @@
 
 @inject IHttpClientFactory ClientFactory
 @code {
-    private IList<Commit> Commits { get; set; } = new List<Commit>();
+    /// <summary>
+    /// 时间轴结点集
+    /// </summary>
     private IList<TimelineNode> TimelineNodes { get; set; } = new List<TimelineNode>();
 
+    /// <summary>
+    /// 页面初始化时 请求github提交记录，按天分组
+    /// </summary>
+    /// <returns></returns>
     protected override async Task OnInitializedAsync()
     {
         var client = ClientFactory.CreateClient("GithubLookApi");
         var res = await client.GetStreamAsync("https://api.github.com/repos/livebug/Sharif/commits");
-        int count = 0;
         TimelineNodes.Clear();
-        Commits.Clear();
         using (JsonDocument document = JsonDocument.Parse(res))
         {
-            JsonElement commits = document.RootElement;
-            count = commits.GetArrayLength();
-            foreach (JsonElement group in commits.EnumerateArray())
+            // 遍历json元素 根元素为数组
+            foreach (JsonElement jsonElement in document.RootElement.EnumerateArray())
             {
-                JsonElement commit = group.GetProperty("commit");
-                var c = commit.Deserialize<Commit>();
+                // 获取 commit 元素，反序列化为对象
+                var c = jsonElement.GetProperty("commit").Deserialize<Commit>();
+                // 解析分组字段，确认分组
                 var datestr = DateTime.Parse(c.author.date).ToShortDateString();
+                // 判断分组是否存在，不存在新建分组结点
                 if (!TimelineNodes.Any(n => n.Header == datestr))
                 {
                     TimelineNodes.Add(new TimelineNode
@@ -70,16 +74,21 @@
                             Content = new List<string>()
                         });
                 }
-                var node = TimelineNodes.First(n => n.Header == datestr);
-                node.Content.Add($"{c.message}.");
-                //node.Content.Add($"{c.message} by {c.author.name}.");
+                // 向结点中添加内容
+                TimelineNodes.First(n => n.Header == datestr).Content.Add($"{c.message}");
             }
         }
     }
 
     internal class TimelineNode
     {
+        /// <summary>
+        /// 结点头信息
+        /// </summary>
         public string Header { get; set; }
+        /// <summary>
+        /// 结点内容
+        /// </summary>
         public List<string> Content { get; set; }
     }
 }
