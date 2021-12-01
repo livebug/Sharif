@@ -59,22 +59,22 @@ export function initToHtmlByEditor(element) {
     });
 }
 
-export function markdownToHTMLByEditor(element, markdownc) {
+export function markdownToHTMLByEditor(element, markdownc, urltoc,tocc) {
 
     var testEditormdView = editormd.markdownToHTML(element, {
         markdown: markdownc,//+ "\r\n" + $("#append-test").text(),
-        htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
-        //htmlDecode: "style,script,iframe",  // you can filter tags decode
-        //toc             : false,
+        //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
+        htmlDecode: "style,script,iframe",  // you can filter tags decode
+        toc: true,
         tocm: true,    // Using [TOCM]
-        //tocContainer    : "#custom-toc-container", // 自定义 ToC 容器层
+        tocContainer: tocc, // 自定义 ToC 容器层  容器与下拉不共存？？？？？？？？
         //gfm             : false,
-        //tocDropdown     : true,
+        tocDropdown     : true,
         // markdownSourceCode : true, // 是否保留 Markdown 源码，即是否删除保存源码的 Textarea 标签
-        emoji: true,
+        urltoc: urltoc,
+        emoji: false,
         taskList: true,
         tex: true,  // 默认不解析
-        flowChart: true,  // 默认不解析
     });
 
 }

@@ -2,6 +2,9 @@
 @using Markdig 
 @implements IAsyncDisposable
 @inject IJSRuntime JS
+<HeadContent>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+</HeadContent>
 
 @if (post is null)
 {
@@ -10,21 +13,17 @@
 else
 {
     <div class="row">
-        <div id="blog-markdown-body" class="markdown-body dark col-md-9">
-            <div class="float-right">
-                <MarkdownThemeSwitchComponent></MarkdownThemeSwitchComponent>
-            </div>
-            <h1 id="title">@post.Title</h1>
-            @convertedMarkdown
+        <div class="dark col-md-9 markdown-body editormd-html-preview" id="html-preview">
         </div>
         <div id="blog-markdown-siderbar" class="col-md-3">
-            <ul id="blog-markdown-toc">
-            </ul>
+            <div id="blog-markdown-toc">
+            </div>
             <TagsCard></TagsCard>
         </div>
     </div>
 
 }
+
 
 @code {
     [Parameter]
@@ -40,7 +39,9 @@ else
             //在第一次呈现组件实例时设置为 true。
             //可用于确保初始化操作仅执行一次。
             module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/script.js");
-            await module.InvokeVoidAsync("generateTOC", "blog-markdown-body", "blog-markdown-toc");
+            await module.InvokeVoidAsync("markdownToHTMLByEditor", "html-preview", post.Content,"/articles/"+post.Id,"#blog-markdown-toc");
+            //await module.InvokeVoidAsync("generateTOC", "html-preview", "blog-markdown-toc");
+            
         }
     }
 

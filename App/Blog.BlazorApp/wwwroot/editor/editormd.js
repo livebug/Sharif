@@ -167,7 +167,6 @@
                                                // Support Editor.md logo icon emoji :editormd-logo: :editormd-logo-1x: > 1~8x;
         tex                  : false,          // TeX(LaTeX), based on KaTeX
         flowChart            : false,          // flowChart.js only support IE9+
-        sequenceDiagram      : false,          // sequenceDiagram.js only support IE9+
         previewCodeHighlight : true,
                 
         toolbar              : true,           // show/hide toolbar
@@ -506,44 +505,7 @@
                     return ;
                 }
 
-                if (settings.flowChart || settings.sequenceDiagram) 
-                {
-                    editormd.loadScript(loadPath + "raphael.min", function() {
-
-                        editormd.loadScript(loadPath + "underscore.min", function() {  
-
-                            if (!settings.flowChart && settings.sequenceDiagram) 
-                            {
-                                editormd.loadScript(loadPath + "sequence-diagram.min", function() {
-                                    _this.loadedDisplay();
-                                });
-                            }
-                            else if (settings.flowChart && !settings.sequenceDiagram) 
-                            {      
-                                editormd.loadScript(loadPath + "flowchart.min", function() {  
-                                    editormd.loadScript(loadPath + "jquery.flowchart.min", function() {
-                                        _this.loadedDisplay();
-                                    });
-                                });
-                            }
-                            else if (settings.flowChart && settings.sequenceDiagram) 
-                            {  
-                                editormd.loadScript(loadPath + "flowchart.min", function() {  
-                                    editormd.loadScript(loadPath + "jquery.flowchart.min", function() {
-                                        editormd.loadScript(loadPath + "sequence-diagram.min", function() {
-                                            _this.loadedDisplay();
-                                        });
-                                    });
-                                });
-                            }
-                        });
-
-                    });
-                } 
-                else
-                {
                     _this.loadedDisplay();
-                }
             }; 
 
             editormd.loadCSS(loadPath + "codemirror/codemirror.min");
@@ -1509,64 +1471,64 @@
         },
         
         /**
-         * 解析和渲染流程图及时序图
+         * 解析和渲染流程图及时序图 去掉支持
          * FlowChart and SequenceDiagram Renderer
          * 
          * @returns {editormd}             返回editormd的实例对象
          */
         
-        flowChartAndSequenceDiagramRender : function() {
-            var $this            = this;
-            var settings         = this.settings;
-            var previewContainer = this.previewContainer;
+        //flowChartAndSequenceDiagramRender : function() {
+        //    var $this            = this;
+        //    var settings         = this.settings;
+        //    var previewContainer = this.previewContainer;
             
-            if (editormd.isIE8) {
-                return this;
-            }
+        //    if (editormd.isIE8) {
+        //        return this;
+        //    }
 
-            if (settings.flowChart) {
-                if (flowchartTimer === null) {
-                    return this;
-                }
+        //    if (settings.flowChart) {
+        //        if (flowchartTimer === null) {
+        //            return this;
+        //        }
                 
-                previewContainer.find(".flowchart").flowChart(); 
-            }
+        //        previewContainer.find(".flowchart").flowChart(); 
+        //    }
 
-            if (settings.sequenceDiagram) {
-                previewContainer.find(".sequence-diagram").sequenceDiagram({theme: "simple"});
-            }
+        //    if (settings.sequenceDiagram) {
+        //        previewContainer.find(".sequence-diagram").sequenceDiagram({theme: "simple"});
+        //    }
                     
-            var preview    = $this.preview;
-            var codeMirror = $this.codeMirror;
-            var codeView   = codeMirror.find(".CodeMirror-scroll");
+        //    var preview    = $this.preview;
+        //    var codeMirror = $this.codeMirror;
+        //    var codeView   = codeMirror.find(".CodeMirror-scroll");
 
-            var height    = codeView.height();
-            var scrollTop = codeView.scrollTop();                    
-            var percent   = (scrollTop / codeView[0].scrollHeight);
-            var tocHeight = 0;
+        //    var height    = codeView.height();
+        //    var scrollTop = codeView.scrollTop();                    
+        //    var percent   = (scrollTop / codeView[0].scrollHeight);
+        //    var tocHeight = 0;
 
-            preview.find(".markdown-toc-list").each(function(){
-                tocHeight += $(this).height();
-            });
+        //    preview.find(".markdown-toc-list").each(function(){
+        //        tocHeight += $(this).height();
+        //    });
 
-            var tocMenuHeight = preview.find(".editormd-toc-menu").height(); 
-            tocMenuHeight = (!tocMenuHeight) ? 0 : tocMenuHeight;
+        //    var tocMenuHeight = preview.find(".editormd-toc-menu").height(); 
+        //    tocMenuHeight = (!tocMenuHeight) ? 0 : tocMenuHeight;
 
-            if (scrollTop === 0) 
-            {
-                preview.scrollTop(0);
-            } 
-            else if (scrollTop + height >= codeView[0].scrollHeight - 16)
-            { 
-                preview.scrollTop(preview[0].scrollHeight);                        
-            } 
-            else
-            {                  
-                preview.scrollTop((preview[0].scrollHeight + tocHeight + tocMenuHeight) * percent);
-            }
+        //    if (scrollTop === 0) 
+        //    {
+        //        preview.scrollTop(0);
+        //    } 
+        //    else if (scrollTop + height >= codeView[0].scrollHeight - 16)
+        //    { 
+        //        preview.scrollTop(preview[0].scrollHeight);                        
+        //    } 
+        //    else
+        //    {                  
+        //        preview.scrollTop((preview[0].scrollHeight + tocHeight + tocMenuHeight) * percent);
+        //    }
 
-            return this;
-        },
+        //    return this;
+        //},
         
         /**
          * 注册键盘快捷键处理
@@ -2079,14 +2041,14 @@
                     }
                 }                
                 
-                if (settings.flowChart || settings.sequenceDiagram)
-                {
-                    flowchartTimer = setTimeout(function(){
-                        clearTimeout(flowchartTimer);
-                        _this.flowChartAndSequenceDiagramRender();
-                        flowchartTimer = null;
-                    }, 10);
-                }
+                //if (settings.flowChart || settings.sequenceDiagram)
+                //{
+                //    flowchartTimer = setTimeout(function(){
+                //        clearTimeout(flowchartTimer);
+                //        _this.flowChartAndSequenceDiagramRender();
+                //        flowchartTimer = null;
+                //    }, 10);
+                //}
 
                 if (state.loaded) 
                 {
@@ -3394,7 +3356,7 @@
             emoji                : false,          // :emoji: , Support Twemoji, fontAwesome, Editor.md logo emojis.
             tex                  : false,          // TeX(LaTeX), based on KaTeX
             flowChart            : false,          // flowChart.js only support IE9+
-            sequenceDiagram      : false,          // sequenceDiagram.js only support IE9+
+            //sequenceDiagram      : false,          // sequenceDiagram.js only support IE9+
         };
         
         var settings        = $.extend(defaults, options || {});    
@@ -3563,7 +3525,7 @@
             
             text = trim(text);
             
-            var escapedText    = text.toLowerCase().replace(/[^\w]+/g, "-");
+            var escapedText    = text.toLowerCase().replace(/[^\w ]+/g, "-");
             var toc = {
                 text  : text,
                 level : level,
@@ -3576,8 +3538,9 @@
             markdownToC.push(toc);
             
             var headingHTML = "<h" + level + " id=\"h"+ level + "-" + this.options.headerPrefix + id +"\">";
-            
-            headingHTML    += "<a name=\"" + text + "\" class=\"reference-link\"></a>";
+
+            //修改无用空格
+            headingHTML += "<a name=\"" + text.replace(/[ ]+/g, "_") + "\" class=\"reference-link\"></a>";
             headingHTML    += "<span class=\"header-link octicon octicon-link\"></span>";
             headingHTML    += (hasLinkReg) ? this.atLink(this.emoji(linkText)) : this.atLink(this.emoji(text));
             headingHTML    += "</h" + level + ">";
@@ -3674,7 +3637,7 @@
      * @returns {Object}   tocContainer    返回ToC列表容器层的jQuery对象元素
      */
     
-    editormd.markdownToCRenderer = function(toc, container, tocDropdown, startLevel) {
+    editormd.markdownToCRenderer = function (toc, container, tocDropdown, startLevel, urltoc) {
         
         var html        = "";    
         var lastLevel   = 0;
@@ -3703,8 +3666,8 @@
             {
                 html += "</ul></li>";
             }
-
-            html += "<li><a class=\"toc-level-" + level + "\" href=\"#" + text + "\" level=\"" + level + "\">" + text + "</a><ul>";
+            // 修改去掉无用空格
+            html += "<li><a class=\"toc-level-" + level + "\" href=\"" + urltoc + "#" + text.replace(/[ ]+/g, "_") + "\"  target=\"_top\" level=\"" + level + "\">" + text + "</a><ul>";
             lastLevel = level;
         }
         
@@ -3911,7 +3874,7 @@
             taskList             : false,   // Github Flavored Markdown task lists
             emoji                : false,
             flowChart            : false,
-            sequenceDiagram      : false,
+           // sequenceDiagram      : false,
             previewCodeHighlight : true
         };
         
@@ -3941,7 +3904,7 @@
             atLink               : settings.atLink,           // for @link
             emailLink            : settings.emailLink,        // for mail address auto link
             flowChart            : settings.flowChart,
-            sequenceDiagram      : settings.sequenceDiagram,
+            //sequenceDiagram      : settings.sequenceDiagram,
             previewCodeHighlight : settings.previewCodeHighlight,
         };
 
@@ -3979,7 +3942,7 @@
          
         if (settings.toc) 
         {
-            div.tocContainer = this.markdownToCRenderer(markdownToC, tocContainer, settings.tocDropdown, settings.tocStartLevel);
+            div.tocContainer = this.markdownToCRenderer(markdownToC, tocContainer, settings.tocDropdown, settings.tocStartLevel, settings.urltoc);
             
             if (settings.tocDropdown || div.find("." + this.classPrefix + "toc-menu").length > 0)
             {
@@ -4000,13 +3963,13 @@
         
         if (!editormd.isIE8) 
         {
-            if (settings.flowChart) {
-                div.find(".flowchart").flowChart(); 
-            }
+            //if (settings.flowChart) {
+            //    div.find(".flowchart").flowChart(); 
+            //}
 
-            if (settings.sequenceDiagram) {
-                div.find(".sequence-diagram").sequenceDiagram({theme: "simple"});
-            }
+            //if (settings.sequenceDiagram) {
+            //    div.find(".sequence-diagram").sequenceDiagram({theme: "simple"});
+            //}
         }
 
         if (settings.tex)

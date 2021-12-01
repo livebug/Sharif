@@ -18,6 +18,7 @@ builder.Services.AddHttpClient("GithubLookApi", client =>
     client.DefaultRequestHeaders.Add("Authorization", $"token {builder.Configuration["GithubLookApi_Token"]}");
 });
 builder.Services.AddScoped<HexoService>();
+
 // Config
 var host = builder.Build();
 var hexoService = host.Services.GetRequiredService<HexoService>();
