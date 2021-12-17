@@ -14,6 +14,7 @@
 		<PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
 	</ItemGroup>
 	<ItemGroup>
+		<ProjectReference Include="..\..\Blog.Repo\Blog.Repo.csproj" />
 		<ProjectReference Include="..\Services\Services.csproj" />
 		<ProjectReference Include="..\Tools\Tools.csproj" />
 	</ItemGroup>
