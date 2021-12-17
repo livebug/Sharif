@@ -1,9 +1,9 @@
 ﻿@page "/sqlparser"
 <h3>index &nbsp;</h3>
 
-<code>
+<pre>
 @((MarkupString)LISP_Tree)
-</code>
+</pre>
 
 @using Antlr4.Runtime
 @using System.Text
@@ -11,7 +11,7 @@
     private string LISP_Tree;
     protected override void OnParametersSet()
     {
-        string sql = "SELECT A,B,C FROM A;SELECT count(1) FROM A;";
+        string sql = "SELECT t1.a01,t1.b01,t2.bo2 FROM sha.A t1 left join qaw.B t2 on t1.b01=t2.b01;SELECT count(1) FROM A;";
         var charStream = CharStreams.fromString(sql);
         var lexer = new HiveLexer(charStream);
         var tokens = new CommonTokenStream(lexer);
@@ -19,31 +19,30 @@
         parser.BuildParseTree = true;
         var tree = parser.statements();
         LISP_Tree = tree.ToStringTree(parser);
+                Console.WriteLine(LISP_Tree);
 
         int tn = 0;
-        string res = "";
+        var res = new StringBuilder();
         foreach (var item in LISP_Tree)
         {
             if (item == '(')
             {
                 tn += 2;
-                var space = new StringBuilder("&nbsp;", tn);
-                space.Append("&nbsp;", tn);
-                .ToString();
-                res += "<br>" + space + item;
+                var space = new string(' ', tn);
+                res.Append ("<br>" + space + item);
             }
             else if (item == ')')
             {
                 tn -= 2;
-                var space = new StringBuilder("&nbsp;", tn).ToString();
-                res += item + "<br>" + space;
+                var space = new string(' ', tn);
+                res.Append ( item + "<br>" + space);
             }
             else
             {
-                res += item;
+                res.Append ( item);
             }
         }
-        LISP_Tree = res;
+        LISP_Tree = res.Replace(" ","&nbsp;").ToString();
         Console.WriteLine(LISP_Tree);
     }
 }
