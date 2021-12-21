@@ -118,11 +118,9 @@ export function InitTree() {
         ]
     },
         orgchart = new OrgChart({
+            'chartContainer': '#chart-container',
             'data': datascource,
             'nodeContent': 'title'
         });
-    let orgchart = new OrgChart({
-        'chartContainer': '#chart-container',
-        'data': datascource
-    });;
+
 }
