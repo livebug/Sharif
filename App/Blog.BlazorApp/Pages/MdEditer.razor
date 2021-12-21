@@ -1,32 +1,22 @@
 ﻿@page "/editer"
 <h1>MdEditer</h1>
 
-<div id="blog-markdown-editor">
-    <textarea style="display:none;">
+<Blog.BlazorApp.Components.EditormdComponent>
 ### Editor.md
 **Editor.md**: The open source embeddable online markdown editor, based on CodeMirror & jQuery & Marked.
-    </textarea>
-</div>
+撒大大
 
-@implements IAsyncDisposable
-@inject IJSRuntime JS
-@code {
-    private IJSObjectReference module;
+[========]
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/script.js");
-            await module.InvokeVoidAsync("initToHtmlByEditor","blog-markdown-editor");
-        }
-    }
+![123](https://tse1-mm.cn.bing.net/th/id/OIP-C.fTTWe120EtxlizeIzXXuMAHaHa?w=192&h=192&c=7&r=0&o=5&dpr=1.25&pid=1.7 "123")
 
-    async ValueTask IAsyncDisposable.DisposeAsync()
-    {
-        if (module is not null)
-        {
-            await module.DisposeAsync();
-        }
-    }
-}
+| 12  | 12  |
+| :------------: | :------------: |
+|  我去饿 | 委屈恶气  |
+|  威威 | 的撒旦  |`萨达`
+
+> 2021-12-21 13:32:07 星期二
+
+
+~~实打实大苏打~~
+</Blog.BlazorApp.Components.EditormdComponent>

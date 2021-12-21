@@ -1,10 +1,4 @@
-﻿@using Blog.BlazorApp.Pages.Cards
-@using Markdig 
-@implements IAsyncDisposable
-@inject IJSRuntime JS
-<HeadContent>
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-</HeadContent>
+﻿@using Blog.BlazorApp.Components
 
 @if (post is null)
 {
@@ -13,12 +7,18 @@
 else
 {
     <div class="row">
-        <div class="dark col-md-9 markdown-body editormd-html-preview" id="html-preview">
+        <div class="dark col-md-9">
+            <EditormdPreviewComponent 
+                Content=@(post.Content) 
+                TocUrl=@("/articles/"+post.Id)
+                TocContainerID=@("#blog-markdown-toc")></EditormdPreviewComponent>
         </div>
         <div id="blog-markdown-siderbar" class="col-md-3">
+            On this page
+            <hr>
             <div id="blog-markdown-toc">
             </div>
-            <TagsCard></TagsCard>
+            <TagsCloudComponent></TagsCloudComponent>
         </div>
     </div>
 
@@ -28,37 +28,4 @@ else
 @code {
     [Parameter]
     public Post post { get; set; }
-
-    private MarkupString convertedMarkdown;
-    private IJSObjectReference module;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            //在第一次呈现组件实例时设置为 true。
-            //可用于确保初始化操作仅执行一次。
-            module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/script.js");
-            await module.InvokeVoidAsync("markdownToHTMLByEditor", "html-preview", post.Content,"/articles/"+post.Id,"#blog-markdown-toc");
-            //await module.InvokeVoidAsync("generateTOC", "html-preview", "blog-markdown-toc");
-            
-        }
-    }
-
-    protected override void OnParametersSet()
-    {
-        var pipeline = new MarkdownPipelineBuilder()
-        .UseAdvancedExtensions()
-        .UseGridTables()
-        .UseBootstrap().Build();
-        convertedMarkdown = (MarkupString)Markdig.Markdown.ToHtml(post.Content, pipeline);
-    }
-
-    async ValueTask IAsyncDisposable.DisposeAsync()
-    {
-        if (module is not null)
-        {
-            await module.DisposeAsync();
-        }
-    }
 }

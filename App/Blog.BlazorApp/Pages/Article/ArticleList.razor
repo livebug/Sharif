@@ -1,4 +1,5 @@
-﻿@*<h3>ArticleList</h3>*@
+﻿@using Blog.BlazorApp.Components
+@*<h3>ArticleList</h3>*@
 
 
 <table class="table">
@@ -20,7 +21,7 @@
                         <Tag Href=@(tag.Id) >@(tag.Name)</Tag>
                     }
                 </td>
-                <td class="updatetime-col">@(post.Updated)   </td>
+                <td class="updatetime-col">@(post.Updated.Date)   </td>
             </tr>
         }
     </tbody>
