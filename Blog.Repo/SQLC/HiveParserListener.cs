@@ -28,7 +28,7 @@ using IToken = Antlr4.Runtime.IToken;
 /// <see cref="HiveParser"/>.
 /// </summary>
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.9.3")]
-[System.CLSCompliant(false)]
+//[System.CLSCompliant(false)]
 public interface IHiveParserListener : IParseTreeListener {
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="HiveParser.statements"/>.

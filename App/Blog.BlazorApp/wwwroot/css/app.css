@@ -112,13 +112,21 @@ padding 影响锚点元素的定位，margin 不影响锚点元素的定位。�
     border: 2px dashed #aaa;
     border-radius: 5px;
     overflow: auto;
-    text-align: center;
     margin: 0 auto;
+    height:50%;
+    width:100%;
 }
 
-.orgchart {
-    cursor: pointer;
-}
+    #chart-container .content {
+        padding-top: 0rem;
+        font-size: 1rem;
+        font-weight:bold;
+    }
+
+    .orgchart {
+        cursor: pointer;
+    }
+
 /*
 ————————————————
 版权声明：本文为CSDN博主「violectyc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。

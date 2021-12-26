@@ -1,19 +1,26 @@
 ﻿@page "/sqlparser"
 <h3>index &nbsp;</h3>
 
-<Blog.BlazorApp.Components.OrgchartComponent></Blog.BlazorApp.Components.OrgchartComponent>
+<div>
+    <Blog.BlazorApp.Components.OrgChat.OrgchartComponent Data=@(Root)></Blog.BlazorApp.Components.OrgChat.OrgchartComponent>
+</div>
 
-<code>
-@((MarkupString)LISP_Tree)
+<code hidden>
+    @((MarkupString)LISP_Tree)
 </code>
 
 @using Antlr4.Runtime
 @using System.Text
+@using System.Collections.Immutable
+@using System.Collections.Generic
+@using Blog.BlazorApp.Components.OrgChat
 @code {
     private string LISP_Tree;
+    public OrgChatTreeNode Root;
     protected override void OnParametersSet()
     {
-        string sql = "SELECT t1.a01,t1.b01,t2.bo2 FROM sha.A t1 left join qaw.B t2 on t1.b01=t2.b01;SELECT count(1) FROM A;";
+        //;SELECT sum(a.age),A.ID FROM A group by A.ID;
+        string sql = "insert into C (C01,C02,C03) SELECT t1.a01 as c01,t1.b01 as c02,t2.bo2 FROM sha.A t1 left join qaw.B t2 on t1.b01=t2.b01;SELECT sum(a.age),A.ID FROM A group by A.ID2;";
         var charStream = CharStreams.fromString(sql);
         var lexer = new HiveLexer(charStream);
         var tokens = new CommonTokenStream(lexer);
@@ -21,31 +28,112 @@
         parser.BuildParseTree = true;
         var tree = parser.statements();
         LISP_Tree = tree.ToStringTree(parser);
-                Console.WriteLine(LISP_Tree);
-
-        int tn = 0;
-        var res = new StringBuilder();
-        foreach (var item in LISP_Tree)
-        {
-            if (item == '(')
-            {
-                tn += 2;
-                var space = new string(' ', tn);
-                res.Append ("<br>" + space + item);
-            }
-            else if (item == ')')
-            {
-                tn -= 2;
-                var space = new string(' ', tn);
-                res.Append ( item + "<br>" + space);
-            }
-            else
-            {
-                res.Append ( item);
-            }
-        }
-        LISP_Tree = res.Replace(" ","&nbsp;").ToString();
-        Console.WriteLine(LISP_Tree);
+        Root = InitLispTree2(LISP_Tree);
     }
+
+    private OrgChatTreeNode InitLispTree2(string lispTree)
+    {
+        var root = new OrgChatTreeNode("root");
+        var stack = new Stack<OrgChatTreeNode>();
+        stack.Push(root);
+        var eles = lispTree.Split(' ');
+        var content = new StringBuilder();
+        for (int i = 0; i < lispTree.Length;)
+        {
+            var v_char = lispTree[i];
+            //Console.WriteLine(v_char);
+            if (v_char == '(')
+            {
+                while (!"()".Contains(lispTree[i + 1]))
+                {
+                    i++;
+                    content.Append(lispTree[i]);
+                }
+                if (content.ToString().Trim().Length > 0)
+                {
+                    var tmp_n = content.ToString();
+                    var n = tmp_n.IndexOf(' ');
+                    //ssssConsole.WriteLine($"{tmp_n},{n},{(n <= 0 ? tmp_n : tmp_n.Substring(n))},{(n <= 0 ? "" : tmp_n.Substring(n, tmp_n.Length - n))}");
+                    var node = new OrgChatTreeNode()
+                        {
+                            Name = n <= 0 ? tmp_n : tmp_n.Substring(0, n),
+                            Title = n <= 0 ? "" : tmp_n.Substring(n)
+                        };
+                    if (stack.Peek().Children is null)
+                    {
+                        stack.Peek().Children = new List<OrgChatTreeNode>();
+                    }
+                    stack.Peek().Children.Add(node);
+                    stack.Push(node);
+                }
+                else if (content.ToString().Trim().Length == 0)
+                {
+                    var node = new OrgChatTreeNode()
+                        {
+                            Title = "(",
+                            Name = ""
+                        };
+                    if (stack.Peek().Children is null)
+                    {
+                        stack.Peek().Children = new List<OrgChatTreeNode>();
+                    }
+                    stack.Peek().Children.Add(node);
+                    stack.Push(node);
+                }
+                content.Clear();
+                i++;
+                continue;
+            }
+
+            if (v_char == ')')
+            {
+                if (stack.Peek().Title == "(")
+                {
+                    var tmp = stack.Pop();
+
+                    (tmp.Children as List<OrgChatTreeNode>).ForEach(stack.Peek().Children.Add);
+                    tmp.Children = null;
+                    var node = new OrgChatTreeNode()
+                        {
+                            Title = ")",
+                            Name = ""
+                        };
+                    if (stack.Peek().Children is null)
+                    {
+                        stack.Peek().Children = new List<OrgChatTreeNode>();
+                    }
+                    stack.Peek().Children.Add(node);
+                }
+                else
+                {
+                    stack.Pop();
+                }
+                i++;
+                continue;
+            }
+
+            while (!"()".Contains(lispTree[i + 1]))
+            {
+                i++;
+                content.Append(lispTree[i]);
+            }
+            if (content.ToString().Trim().Length > 0)
+            {
+                var node = new OrgChatTreeNode()
+                    {
+                        Name = "",
+                        Title = content.ToString()
+                    };
+                if (stack.Peek().Children is null)
+                {
+                    stack.Peek().Children = new List<OrgChatTreeNode>();
+                }
+                stack.Peek().Children.Add(node);
+            }
+            content.Clear();
+            i++;
+
+        }
+        return root;
+    } 
 }
-  

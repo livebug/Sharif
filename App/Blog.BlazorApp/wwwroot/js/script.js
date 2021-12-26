@@ -81,8 +81,10 @@ export function markdownToHTMLByEditor(element, markdownc, urltoc, tocc) {
 
 import OrgChart from './orgchart.js';
 
-export function InitTree() {
+export function InitTree(data = undefined) {
 
+    console.log(data)
+    console.log(JSON.parse(data))
     let datascource = {
         'name': 'Lao Lao',
         'title': 'general manager',
@@ -119,8 +121,9 @@ export function InitTree() {
     },
         orgchart = new OrgChart({
             'chartContainer': '#chart-container',
-            'data': datascource,
-            'nodeContent': 'title'
+            'data': data ? JSON.parse(data) : datascource,
+            'nodeContent': 'title',
+            'toggleSiblingsResp':true
         });
 
 }

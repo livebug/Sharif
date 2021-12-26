@@ -33,7 +33,7 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 /// </summary>
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.9.3")]
 [System.Diagnostics.DebuggerNonUserCode]
-[System.CLSCompliant(false)]
+//[System.CLSCompliant(false)]
 public partial class HiveParserBaseListener : IHiveParserListener {
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="HiveParser.statements"/>.

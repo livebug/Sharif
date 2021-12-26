@@ -1,5 +1,4 @@
-﻿@using Blog.BlazorApp.Components
-
+﻿
 @if (post is null)
 {
     <p>...</p>
@@ -7,21 +6,20 @@
 else
 {
     <div class="row">
-        <div class="dark col-md-9">
-            <EditormdPreviewComponent 
+        <div class="dark col-md-9">ssssss
+            <Blog.BlazorApp.Components.EditormdPreviewComponent 
                 Content=@(post.Content) 
                 TocUrl=@("/articles/"+post.Id)
-                TocContainerID=@("#blog-markdown-toc")></EditormdPreviewComponent>
+                TocContainerID=@("#blog-markdown-toc")></Blog.BlazorApp.Components.EditormdPreviewComponent>
         </div>
         <div id="blog-markdown-siderbar" class="col-md-3">
             On this page
             <hr>
             <div id="blog-markdown-toc">
             </div>
-            <TagsCloudComponent></TagsCloudComponent>
+            <Blog.BlazorApp.Components.TagsCloudComponent></Blog.BlazorApp.Components.TagsCloudComponent>
         </div>
     </div>
-
 }
 
 
