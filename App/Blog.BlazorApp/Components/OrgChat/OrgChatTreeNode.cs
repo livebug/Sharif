@@ -7,20 +7,29 @@ namespace Blog.BlazorApp.Components.OrgChat
         public OrgChatTreeNode()
         { 
         }
-        public OrgChatTreeNode(string name, string content = null)
+        public OrgChatTreeNode(string name, string  title = null)
         {
             Name = name;
-            Title = content;
-            Children = new List<OrgChatTreeNode>();
+            Title = title;
+        }
+        public void AddChildrens(params OrgChatTreeNode[] nodes)
+        {
+            if(this.Children is null)
+                this.Children = new List<OrgChatTreeNode>();
+            foreach(var node in nodes)
+            {
+                this.Children.Add(node);
+            }
+        }
+        public void AdoptChildrensTo(OrgChatTreeNode node)
+        {
+            (this.Children as List<OrgChatTreeNode>).ForEach(node.Children.Add);
+            this.Children = null;
         }
         [JsonPropertyName("name")]
         public string Name { get; set; }
         [JsonPropertyName("title")]
         public string Title { get; set; }
-        [JsonIgnore]
-        public int Depth { get; set; }
-        [JsonIgnore]
-        public int Sn { get; set; }
         [JsonPropertyName("children")]
         public IList<OrgChatTreeNode> Children { get; set; }
     }
