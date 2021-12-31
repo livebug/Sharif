@@ -20,7 +20,12 @@
     protected override void OnParametersSet()
     {
         //;SELECT sum(a.age),A.ID FROM A group by A.ID;
-        string sql = "insert into C (C01,C02,C03) SELECT t1.a01 as c01,t1.b01 as c02,t2.bo2 FROM sha.A t1 left join qaw.B t2 on t1.b01=t2.b01;SELECT sum(a.age),A.ID FROM A group by A.ID2;";
+        string sql = @"insert into C (C01,C02,C03,C04) 
+SELECT t1.a01 as c01,t1.b01 as c02,t2.bo2 ,t1.a05 ,t03.sumbal
+FROM sha.A t1 
+left join qaw.B t2 on t1.b01=t2.b01 and t2.day_id= case when org='ABC' then '20211231' else '20211230' end
+left join (select tt.q as ttq,tt.w as ttw,sum(bal) as sumbal from seesion.tmp tt where tt.day_id='20211231' group by tt.q,tt.w 
+    ) t03 on t03.tta||t03.ttw = t1.a05 ;";
         var charStream = CharStreams.fromString(sql);
         var lexer = new HiveLexer(charStream);
         var tokens = new CommonTokenStream(lexer);

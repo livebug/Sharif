@@ -22,7 +22,7 @@ export default class OrgChart {
                 'parentNodeSymbol': 'fa-users',
                 'draggable': false,
                 'direction': 't2b',
-                'pan': false,
+                'pan': true,
                 'zoom': false
             },
             opts = Object.assign(defaultOptions, options),

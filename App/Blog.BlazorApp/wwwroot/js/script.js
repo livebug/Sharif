@@ -83,8 +83,8 @@ import OrgChart from './orgchart.js';
 
 export function InitTree(data = undefined) {
 
-    console.log(data)
-    console.log(JSON.parse(data))
+    //console.log(data)
+    //console.log(JSON.parse(data))
     let datascource = {
         'name': 'Lao Lao',
         'title': 'general manager',
