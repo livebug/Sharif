@@ -1,19 +1,19 @@
-﻿@page "/sqlparser"
+﻿@using Antlr4.Runtime
+@using System.Text
+@using System.Collections.Immutable
+@using System.Collections.Generic
+@using Blog.BlazorApp.Components.OrgChat
+@page "/sqlparser"
 <h3>index &nbsp;</h3>
 
 <div>
-    <Blog.BlazorApp.Components.OrgChat.OrgchartComponent Data=@(Root)></Blog.BlazorApp.Components.OrgChat.OrgchartComponent>
+    <OrgChatComponent Data=@(Root)></OrgChatComponent>
 </div>
 
 <code hidden>
     @((MarkupString)LISP_Tree)
 </code>
 
-@using Antlr4.Runtime
-@using System.Text
-@using System.Collections.Immutable
-@using System.Collections.Generic
-@using Blog.BlazorApp.Components.OrgChat
 @code {
     private string LISP_Tree;
     public OrgChatTreeNode Root;
