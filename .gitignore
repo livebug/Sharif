@@ -371,3 +371,4 @@ Blog.B4Temp/node_modules
 appsettings.json
 /App/Blog.BlazorApp/wwwroot/appsettings.Development.json
 /App/Blog.BlazorApp/Dockerfile
+/Data/sql
