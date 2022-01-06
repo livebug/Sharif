@@ -29,6 +29,7 @@ export default class OrgChart {
             data = opts.data,
             chart = document.createElement('div'),
             chartContainer = document.querySelector(opts.chartContainer);
+        chartContainer.innerHTML = '';
 
         this.options = opts;
         delete this.options.data;
