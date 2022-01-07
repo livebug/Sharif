@@ -11,17 +11,23 @@ namespace Blog.Repo.SQLC.Print.OrgChart
     {
         public static OrgChartTreeNode Build(string SqlStatement,out string error)
         {
+            return Build(SqlStatement, out string str, out error);
+        }
+        public static OrgChartTreeNode Build(string SqlStatement,out string outstr, out string error)
+        {
             var charStream = CharStreams.fromString(SqlStatement);
             var lexer = new HiveLexer(charStream);
             var tokens = new CommonTokenStream(lexer);
             StringWriter output = new StringWriter();
             StringWriter errorOutput = new StringWriter();
-            var parser = new HiveParser(tokens,output,errorOutput);
+            var parser = new HiveParser(tokens, output, errorOutput);
             parser.BuildParseTree = true;
             var tree = parser.statements();
             error = errorOutput.ToString();
-            return OrgChartBuilder.InitLispTree(tree.ToStringTree(parser));
+            outstr = tree.ToStringTree(parser);
+            return OrgChartBuilder.InitLispTree(outstr);
         }
+
         public static OrgChartTreeNode InitLispTree(string lispTree)
         {
             var root = new OrgChartTreeNode("root");

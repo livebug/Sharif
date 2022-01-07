@@ -20,8 +20,18 @@ FROM sha.A t1
 left join qaw.B t2 on t1.b01=t2.b01 and t2.day_id= case when org='ABC' then '20211231' else '20211230' end
 left join (select tt.q as ttq,tt.w as ttw,sum(bal) as sumbal from seesion.tmp tt where tt.day_id='20211231' group by tt.q,tt.w
     ) t03 on t03.tta||t03.ttw = t1.a05  ";
-            OrgChartTreeNode Root = OrgChartBuilder.Build(SqlStatement,out string error);
+             
+            OrgChartTreeNode Root = OrgChartBuilder.Build(SqlStatement, out string error);
             Console.WriteLine(error);
+        }
+        [TestMethod()]
+        public void BuildTest2()
+        {
+            string SqlStatement = "select * from (values('I1'),('I2'),('I3'))A;";
+            OrgChartTreeNode Root = OrgChartBuilder.Build(SqlStatement, out string str, out string error);
+            Console.WriteLine(str);
+            Console.WriteLine(error);
+
         }
     }
 }
