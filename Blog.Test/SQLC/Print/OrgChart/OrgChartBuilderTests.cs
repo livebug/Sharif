@@ -27,11 +27,10 @@ left join (select tt.q as ttq,tt.w as ttw,sum(bal) as sumbal from seesion.tmp tt
         [TestMethod()]
         public void BuildTest2()
         {
-            string SqlStatement = "select * from (values('I1'),('I2'),('I3'))A;";
+            string SqlStatement = "select * from VALUES (1,2),(3,4);";
             OrgChartTreeNode Root = OrgChartBuilder.Build(SqlStatement, out string str, out string error);
             Console.WriteLine(str);
             Console.WriteLine(error);
-
         }
     }
 }

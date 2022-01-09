@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Hive.V3;
 namespace Blog.Repo.SQLC.Print.OrgChart
 {
     public static class OrgChartBuilder
@@ -88,7 +89,7 @@ namespace Blog.Repo.SQLC.Print.OrgChart
                     if (content.ToString().Trim().Length > 0)
                         stack.Peek().AddChildrens(new OrgChartTreeNode(name: "", title: content));
                 }
-                content = null;
+                content = string.Empty;
             }
             return root;
         }

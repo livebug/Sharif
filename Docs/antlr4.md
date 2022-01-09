@@ -40,5 +40,17 @@ https://github.com/antlr/grammars-v4/
 ## Брвы
 
 ```bash
- antlr4 -lib ./ HiveParser.g4 -o csharp -Dlanguage=CSharp  -visitor
+ antlr4 -lib ./  HiveLexer.g4  -o csharp -Dlanguage=CSharp -visitor -package Hive.V3
+ antlr4 -lib ./ HiveParser.g4 -o csharp -Dlanguage=CSharp  -visitor -package Hive.V3
+ antlr4 -lib ./ HiveParser.g4 -o csharp -Dlanguage=CSharp  -visitor -package Hive.V3
+ antlr4 -lib ./ HiveParser.g4 -o csharp -Dlanguage=CSharp  -visitor -package Hive.V3
+ antlr4 -lib ./ HiveParser.g4 -o csharp -Dlanguage=CSharp  -visitor -package Hive.V3
 ```
+
+ antlr4 -lib ./ HiveLexer.g4            -o csharp -Dlanguage=CSharp  -visitor -package Hive.V3
+ antlr4 -lib ./ IdentifiersParser.g4    -o csharp -Dlanguage=CSharp  -visitor -package Hive.V3
+ antlr4 -lib ./ HintParser.g4           -o csharp -Dlanguage=CSharp  -visitor -package Hive.V3
+ antlr4 -lib ./ SelectClauseParser.g4   -o csharp -Dlanguage=CSharp  -visitor -package Hive.V3
+ antlr4 -lib ./ FromClauseParser.g4     -o csharp -Dlanguage=CSharp  -visitor -package Hive.V3
+ antlr4 -lib ./ HiveParser.g4           -o csharp -Dlanguage=CSharp  -visitor -package Hive.V3
+ antlr4 -lib ./ ResourcePlanParser.g4   -o csharp -Dlanguage=CSharp  -visitor -package Hive.V3
