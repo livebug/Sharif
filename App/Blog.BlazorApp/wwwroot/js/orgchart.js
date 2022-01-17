@@ -15,7 +15,7 @@ export default class OrgChart {
                 'nodeTitle': 'name',
                 'nodeId': 'id',
                 'toggleSiblingsResp': false,
-                'depth': 999,
+                'depth': 4,
                 'chartClass': '',
                 'exportButton': false,
                 'exportFilename': 'OrgChart',

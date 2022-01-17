@@ -83,7 +83,7 @@ import OrgChart from './orgchart.js';
 
 export function InitTree(data = undefined) {
 
-    //console.log(data)
+    console.log(data)
     //console.log(JSON.parse(data))
     let datascource = {
         'name': 'Lao Lao',
@@ -123,6 +123,7 @@ export function InitTree(data = undefined) {
             'chartContainer': '#chart-container',
             'data': data ? JSON.parse(data) : datascource,
             'nodeContent': 'title',
+            'depth': 4,
             'toggleSiblingsResp':true
         });
 

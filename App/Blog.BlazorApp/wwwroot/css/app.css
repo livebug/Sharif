@@ -111,10 +111,7 @@ padding 影响锚点元素的定位，margin 不影响锚点元素的定位。�
     display: block;
     border: 2px dashed #aaa;
     border-radius: 5px;
-    overflow: auto;
     margin: 0 auto;
-    height:50%;
-    width:100%;
 }
 
     #chart-container .content {

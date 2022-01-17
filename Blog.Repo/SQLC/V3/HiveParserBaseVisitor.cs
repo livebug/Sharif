@@ -33,7 +33,7 @@ using ParserRuleContext = Antlr4.Runtime.ParserRuleContext;
 /// <typeparam name="Result">The return type of the visit operation.</typeparam>
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "4.9.2")]
 [System.Diagnostics.DebuggerNonUserCode]
-[System.CLSCompliant(false)]
+//[System.CLSCompliant(false)]
 public partial class HiveParserBaseVisitor<Result> : AbstractParseTreeVisitor<Result>, IHiveParserVisitor<Result> {
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="HiveParser.statements"/>.
