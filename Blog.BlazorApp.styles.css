@@ -1,0 +1,298 @@
+/* /Pages/Article/ArticleContent.razor.rz.scp.css */
+@media (min-width: 992px) {
+    #blog-markdown-siderbar[b-43fdb6u4vk] {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 5rem;
+        right: 0;
+        z-index: 2;
+        height: calc(100vh - 7rem);
+        overflow-y: auto;
+    }
+}
+/* /Pages/Article/ArticleList.razor.rz.scp.css */
+.updatetime-col[b-6mmcd67iom] {
+    display:none;
+}
+
+@media (min-width: 641px) { 
+    .updatetime-col[b-6mmcd67iom] {
+        display: table-cell;
+    }
+}
+/* /Pages/CV.razor.rz.scp.css */
+.side-title[b-jcgnv8b6by] {
+    font-size: 1.5rem;
+    background-color: #518CC8;
+}
+
+.side[b-jcgnv8b6by] {
+    background-color: #F4F2F7;
+    padding: 2rem 0 2rem 0;
+}
+
+.side-t[b-jcgnv8b6by] {
+    position:relative;
+    display:flex;
+}
+
+.kk[b-jcgnv8b6by] {
+    position: absolute;
+    width: 1rem;
+    height: 100%;
+    outline: 1px dashed black;
+    display: flex;
+    justify-content: center;
+}
+/* /Pages/Tags.razor.rz.scp.css */
+
+.tag-list-tab[b-sj6cyea4f9] {
+    display:none;
+}
+
+@media (min-width: 641px) { 
+    .tag-accordion-card[b-sj6cyea4f9] {
+        display:none;
+    }
+    .tag-list-tab[b-sj6cyea4f9] {
+        display:flex;
+    }
+}
+/* /Pages/Timeline.razor.rz.scp.css */
+.container[b-cygnfwxzps] {
+    /* Used to position the left vertical line */
+    position: relative;
+}
+
+.container__line[b-cygnfwxzps] {
+    /* Border */
+    border-right: 2px solid #aaa;
+    /* Positioned at the left */
+    left: 16px;
+    position: absolute;
+    top: 0px;
+    /* Take full height */
+    height: 100%;
+}
+
+.container__items[b-cygnfwxzps] {
+    /* Reset styles */
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.container__item[b-cygnfwxzps] {
+    margin-bottom: 8px;
+}
+
+.container__top[b-cygnfwxzps] {
+    /* Center the content horizontally */
+    align-items: center;
+    display: flex;
+}
+
+.container__circle[b-cygnfwxzps] {
+    /* Rounded border */
+    background-color: rgb(170, 170, 170);
+    border-radius: 9999px;
+    /* Size */
+    height: 32px;
+    width: 32px;
+}
+
+.container__title[b-cygnfwxzps] {
+    /* Take available width */
+    flex: 1;
+}
+
+.container__desc[b-cygnfwxzps] {
+    /* Make it align with the title */
+    margin-left: 48px;
+}
+
+/********************************************************************************/
+
+#timeline-div[b-cygnfwxzps] {
+    position: relative;
+    font-family: 'Times New Roman',STSong;
+    font-size: 1.2rem;
+}
+
+#timeline-line[b-cygnfwxzps] {
+    border-right: 0.2rem solid rgb(170, 170, 170);
+    height: 100%;
+    left: 1.05rem;
+    position: absolute;
+    top: 0;
+}
+
+#timeline-group[b-cygnfwxzps] {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.timeline-item[b-cygnfwxzps] {
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item-header[b-cygnfwxzps] {
+    align-items: center;
+    display: flex;
+    margin-bottom: 4px;
+}
+
+    .timeline-item-header .circle[b-cygnfwxzps] {
+        background-color: rgb(170, 170, 170);
+        border-radius: 50%;
+        height: 2.3rem;
+        width: 2.3rem;
+    }
+
+    .timeline-item-header .context[b-cygnfwxzps] {
+        flex: 1 1 0%;
+        margin-left: 1rem;
+    }
+
+.timeline-item-body[b-cygnfwxzps] {
+    margin-left: 3rem;
+    white-space: pre-line;
+    /*background-color: rgb(170, 170, 170);*/
+    /*border-radius: 20px;*/
+    padding-top: 1rem;
+}
+/* /Shared/MainLayout.razor.rz.scp.css */
+.page[b-4i0clatmai] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.main[b-4i0clatmai] {
+    flex: 1;
+}
+
+.sidebar[b-4i0clatmai] {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}
+
+.top-row[b-4i0clatmai] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+    .top-row[b-4i0clatmai]  a, .top-row .btn-link[b-4i0clatmai] {
+        white-space: nowrap;
+        margin-left: 1.5rem;
+    }
+
+    .top-row a:first-child[b-4i0clatmai] {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+@media (max-width: 640.98px) {
+    .top-row:not(.auth)[b-4i0clatmai] {
+        display: none;
+    }
+
+    .top-row.auth[b-4i0clatmai] {
+        justify-content: space-between;
+    }
+
+    .top-row a[b-4i0clatmai], .top-row .btn-link[b-4i0clatmai] {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 641px) {
+    .page[b-4i0clatmai] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-4i0clatmai] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-4i0clatmai] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .main > div[b-4i0clatmai] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+/* /Shared/NavMenu.razor.rz.scp.css */
+.navbar-toggler[b-gxpc06jld4] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-row[b-gxpc06jld4] {
+    height: 3.5rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.navbar-brand[b-gxpc06jld4] {
+    font-size: 1.1rem;
+}
+
+.oi[b-gxpc06jld4] {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.nav-item[b-gxpc06jld4] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+    .nav-item:first-of-type[b-gxpc06jld4] {
+        padding-top: 1rem;
+    }
+
+    .nav-item:last-of-type[b-gxpc06jld4] {
+        padding-bottom: 1rem;
+    }
+
+    .nav-item[b-gxpc06jld4]  a {
+        color: #d7d7d7;
+        border-radius: 4px;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        line-height: 3rem;
+    }
+
+.nav-item[b-gxpc06jld4]  a.active {
+    background-color: rgba(255,255,255,0.25);
+    color: white;
+}
+
+.nav-item[b-gxpc06jld4]  a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-gxpc06jld4] {
+        display: none;
+    }
+
+    .collapse[b-gxpc06jld4] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+}
