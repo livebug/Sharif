@@ -370,3 +370,5 @@ Blog.B4Temp/node_modules
 /Blog.B5Temp/csst.html
 appsettings.json
 /App/Blog.BlazorApp/wwwroot/appsettings.Development.json
+/App/Blog.BlazorApp/Dockerfile
+/Data/sql

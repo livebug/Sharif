@@ -1,0 +1,49 @@
+﻿@using Markdig
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+<HeadContent>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+</HeadContent>
+
+<div class="markdown-body editormd-html-preview" id="html-preview">
+</div>
+
+@code {
+    [Parameter]
+    public string Content { get; set; }
+    [Parameter]
+    public string TocUrl { get; set; }
+    [Parameter]
+    public string TocContainerID { get; set; }
+
+    private MarkupString convertedMarkdown;
+    private IJSObjectReference module;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            //在第一次呈现组件实例时设置为 true。
+            //可用于确保初始化操作仅执行一次。
+            module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/script.js");
+            await module.InvokeVoidAsync("markdownToHTMLByEditor", "html-preview", Content, TocUrl, TocContainerID);
+        }
+    }
+
+    protected override void OnParametersSet()
+    {
+        var pipeline = new MarkdownPipelineBuilder()
+        .UseAdvancedExtensions()
+        .UseGridTables()
+        .UseBootstrap().Build();
+        convertedMarkdown = (MarkupString)Markdig.Markdown.ToHtml(Content, pipeline);
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if (module is not null)
+        {
+            await module.DisposeAsync();
+        }
+    }
+}

@@ -103,3 +103,28 @@ padding 影响锚点元素的定位，margin 不影响锚点元素的定位。�
     #blog-markdown-toc a:hover {
         color: #0366d6;
     }
+
+/*
+    处理树状图
+*/
+#chart-container {
+    display: block;
+    border: 2px dashed #aaa;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+    #chart-container .content {
+        padding-top: 0rem;
+        font-size: 1rem;
+        font-weight:bold;
+    }
+
+    .orgchart {
+        cursor: pointer;
+    }
+
+/*
+————————————————
+版权声明：本文为CSDN博主「violectyc」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/violectyc/article/details/102563535*/

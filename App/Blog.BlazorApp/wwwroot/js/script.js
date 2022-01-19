@@ -59,7 +59,7 @@ export function initToHtmlByEditor(element) {
     });
 }
 
-export function markdownToHTMLByEditor(element, markdownc, urltoc,tocc) {
+export function markdownToHTMLByEditor(element, markdownc, urltoc, tocc) {
 
     var testEditormdView = editormd.markdownToHTML(element, {
         markdown: markdownc,//+ "\r\n" + $("#append-test").text(),
@@ -69,12 +69,62 @@ export function markdownToHTMLByEditor(element, markdownc, urltoc,tocc) {
         tocm: true,    // Using [TOCM]
         tocContainer: tocc, // 自定义 ToC 容器层  容器与下拉不共存？？？？？？？？
         //gfm             : false,
-        tocDropdown     : true,
+        tocDropdown: true,
         // markdownSourceCode : true, // 是否保留 Markdown 源码，即是否删除保存源码的 Textarea 标签
         urltoc: urltoc,
         emoji: false,
         taskList: true,
         tex: true,  // 默认不解析
     });
+
+}
+
+import OrgChart from './orgchart.js';
+
+export function InitTree(data = undefined) {
+
+    console.log(data)
+    //console.log(JSON.parse(data))
+    let datascource = {
+        'name': 'Lao Lao',
+        'title': 'general manager',
+        'children': [
+            {
+                'name': 'Bo Miao', 'title': 'department manager', 'className': 'middle-level',
+                'children': [
+                    { 'name': 'Li Jing', 'title': 'senior engineer', 'className': 'product-dept' },
+                    {
+                        'name': 'Li Xin', 'title': 'senior engineer', 'className': 'product-dept',
+                        'children': [
+                            { 'name': 'To To', 'title': 'engineer', 'className': 'pipeline1' },
+                            { 'name': 'Fei Fei', 'title': 'engineer', 'className': 'pipeline1' },
+                            { 'name': 'Xuan Xuan', 'title': 'engineer', 'className': 'pipeline1' }
+                        ]
+                    }
+                ]
+            },
+            {
+                'name': 'Su Miao', 'title': 'department manager', 'className': 'middle-level',
+                'children': [
+                    { 'name': 'Pang Pang', 'title': 'senior engineer', 'className': 'rd-dept' },
+                    {
+                        'name': 'Hei Hei', 'title': 'senior engineer', 'className': 'rd-dept',
+                        'children': [
+                            { 'name': 'Xiang Xiang', 'title': 'UE engineer', 'className': 'frontend1' },
+                            { 'name': 'Dan Dan', 'title': 'engineer', 'className': 'frontend1' },
+                            { 'name': 'Zai Zai', 'title': 'engineer', 'className': 'frontend1' }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+        orgchart = new OrgChart({
+            'chartContainer': '#chart-container',
+            'data': data ? JSON.parse(data) : datascource,
+            'nodeContent': 'title',
+            'depth': 4,
+            'toggleSiblingsResp':true
+        });
 
 }

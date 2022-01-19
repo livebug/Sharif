@@ -1,0 +1,36 @@
+﻿@using Blog.Repo.SQLC.Print.OrgChart
+@using Blog.BlazorApp.Components
+@using Blog.BlazorApp.Pages
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+<div id="chart-container"></div>
+@code {
+
+
+    [Parameter]
+    public OrgChartTreeNode Data { get; set; } = null;
+
+    private IJSObjectReference module;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await module.InvokeVoidAsync("InitTree", JsonSerializer.Serialize(Data));
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        //在第一次呈现组件实例时设置为 true。
+        //可用于确保初始化操作仅执行一次。
+        module = await JS.InvokeAsync<IJSObjectReference>("import", "./js/script.js");
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        if (module is not null)
+        {
+            await module.DisposeAsync();
+        }
+    }
+}
